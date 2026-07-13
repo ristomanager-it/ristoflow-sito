@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prezzi — Ristoflow.AI</title>
+  <meta name="description" content="Piani e prezzi Ristoflow.AI. Da €19/mese per gestire il tuo ristorante con AI integrata.">
+  <link rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Toggle mensile/annuale ── */
+    .billing-toggle {
+      display: flex; align-items: center; gap: 12px;
+      justify-content: center; margin-bottom: 48px;
+    }
+    .billing-toggle span { font-weight: 600; font-size: 0.95rem; color: var(--text-light); transition: color 0.2s; }
+    .billing-toggle span.active { color: var(--primary); }
+    .toggle-switch {
+      position: relative; width: 52px; height: 28px; cursor: pointer;
+    }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider {
+      position: absolute; inset: 0; background: var(--border);
+      border-radius: 999px; transition: background 0.2s;
+    }
+    .toggle-slider::before {
+      content: ''; position: absolute;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: white; top: 3px; left: 3px;
+      transition: transform 0.2s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+    .toggle-switch input:checked + .toggle-slider { background: var(--primary); }
+    .toggle-switch input:checked + .toggle-slider::before { transform: translateX(24px); }
+    .badge-risparmio {
+      background: #dcfce7; color: #15803d;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 3px 8px; border-radius: 999px;
+    }
+
+    /* ── Pricing grid ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px; align-items: start;
+    }
+    .pricing-card {
+      background: white; border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px 24px;
+      position: relative; transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .pricing-card.featured {
+      border-color: var(--primary); background: var(--primary);
+      color: white;
+    }
+    .pricing-card.featured p,
+    .pricing-card.featured .pricing-desc,
+    .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.85); }
+    .pricing-badge {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: white;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 4px 14px; border-radius: 999px; white-space: nowrap;
+    }
+    .pricing-name { font-family: 'Sora', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .pricing-price {
+      font-family: 'Sora', sans-serif; font-size: 2.4rem; font-weight: 800;
+      line-height: 1; margin-bottom: 4px;
+    }
+    .pricing-price span { font-size: 1rem; font-weight: 500; opacity: 0.7; }
+    .pricing-price-annual { font-size: 0.82rem; opacity: 0.65; margin-bottom: 12px; min-height: 18px; }
+    .pricing-desc { font-size: 0.88rem; margin-bottom: 20px; min-height: 40px; }
+    .pricing-features { list-style: none; margin-bottom: 24px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .pricing-features li {
+      font-size: 0.875rem; display: flex; align-items: flex-start; gap: 8px;
+    }
+    .pricing-features li::before {
+      content: '✓'; font-weight: 700; color: var(--accent);
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .pricing-card.featured .pricing-features li::before { color: #a7f3d0; }
+    .pricing-sedi {
+      font-size: 0.8rem; font-weight: 600; opacity: 0.6;
+      margin-bottom: 20px; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    .pricing-card.featured .pricing-sedi { border-top-color: rgba(255,255,255,0.2); }
+
+    /* Skeleton loader */
+    .skeleton {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.2s infinite;
+      border-radius: 8px;
+    }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    /* ── Tabella confronto ── */
+    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-weight: 600; color: var(--text); margin-bottom: 8px; font-size: 1rem; }
+    .faq-a { color: var(--text-light); font-size: 0.95rem; }
+
+    /* ── Tipo tag ── */
+    .tipo-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 999px; margin-bottom: 10px;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .tipo-ristorante { background: #fff7ed; color: #c2410c; }
+    .tipo-hotel { background: #eff6ff; color: #1d4ed8; }
+    .tipo-full { background: #f5f3ff; color: #6d28d9; }
+    .tipo-fondatore { background: #fefce8; color: #92400e; }
+    .tipo-tasting { background: #f0fdf4; color: #15803d; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo.png" alt="Ristoflow.AI">Ristoflow.AI
+      </a>
+      <ul class="nav-links">
+        <li><a href="funzionalita.html">Funzionalità</a></li>
+        <li><a href="prezzi.html">Prezzi</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="mailto:info@ristoflow-ai.com" class="btn btn-outline">Contattaci</a>
+        <a href="https://app.ristoflow-ai.com" class="btn btn-primary" target="_blank">Apri l'app →</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="section-eyebrow">Prezzi</span>
+    <h1>Piani semplici, senza sorprese</h1>
+    <p>Tutti i piani includono Tony AI, onboarding guidato e supporto via WhatsApp. Nessun costo di attivazione.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Toggle mensile/annuale -->
+    <div class="billing-toggle">
+      <span id="lbl-mensile" class="active">Mensile</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="toggle-annuale">
+        <span class="toggle-slider"></span>
+      </label>
+      <span id="lbl-annuale">Annuale <span class="badge-risparmio">-20%</span></span>
+    </div>
+
+    <!-- Cards piani (popolate da JS) -->
+    <div id="pricing-grid" class="pricing-grid">
+      <!-- Skeleton -->
+      <div style="border-radius:20px;padding:28px;background:white;border:1.5px solid #e5e7eb;">
+        <div class="skeleton" style="height:20px;width:60%;margin-bottom:12px;"></div>
+        <div class="skeleton" style="height:48px;width:40%;margin-bottom:20px;"></div>
+        <div class="skeleton" style="height:14px;width:90%;margin-bottom:8px;"></div>
+        <div class="skeleton" style="height:14px;width:80%;margin-bottom:8px;"></div>
+        <div class="skeleton" style="height:14px;width:85%;margin-bottom:24px;"></div>
+        <div class="skeleton" style="height:44px;border-radius:10px;"></div>
+      </div>
+      <div style="border-radius:20px;padding:28px;background:white;border:1.5px solid #e5e7eb;">
+        <div class="skeleton" style="height:20px;width:60%;margin-bottom:12px;"></div>
+        <div class="skeleton" style="height:48px;width:40%;margin-bottom:20px;"></div>
+        <div class="skeleton" style="height:14px;width:90%;margin-bottom:8px;"></div>
+        <div class="skeleton" style="height:14px;width:80%;margin-bottom:8px;"></div>
+        <div class="skeleton" style="height:14px;width:85%;margin-bottom:24px;"></div>
+        <div class="skeleton" style="height:44px;border-radius:10px;"></div>
+      </div>
+      <div style="border-radius:20px;padding:28px;background:white;border:1.5px solid #e5e7eb;">
+        <div class="skeleton" style="height:20px;width:60%;margin-bottom:12px;"></div>
+        <div class="skeleton" style="height:48px;width:40%;margin-bottom:20px;"></div>
+        <div class="skeleton" style="height:14px;width:90%;margin-bottom:8px;"></div>
+        <div class="skeleton" style="height:14px;width:80%;margin-bottom:8px;"></div>
+        <div class="skeleton" style="height:14px;width:85%;margin-bottom:24px;"></div>
+        <div class="skeleton" style="height:44px;border-radius:10px;"></div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:24px;color:var(--text-light);font-size:0.9rem;">
+      Tutti i prezzi sono IVA esclusa. Hai esigenze particolari?
+      <a href="mailto:info@ristoflow-ai.com">Contattaci</a> per un'offerta su misura.
+    </p>
+
+    <!-- FAQ -->
+    <div style="max-width:720px;margin:80px auto 0;">
+      <div class="section-header" style="margin-bottom:40px;">
+        <h2>Domande frequenti</h2>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Posso provare Ristoflow.AI prima di pagare?</div>
+        <div class="faq-a">Sì — offriamo una demo gratuita di 30 minuti adattata al tuo locale. Scrivici a info@ristoflow-ai.com per prenotarla.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Posso cambiare piano in qualsiasi momento?</div>
+        <div class="faq-a">Sì, puoi fare upgrade o downgrade in qualsiasi momento. Il cambio è immediato e la fatturazione viene aggiornata al ciclo successivo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">I messaggi WhatsApp sono inclusi nel prezzo?</div>
+        <div class="faq-a">Ristoflow.AI non addebita i messaggi WhatsApp. Meta offre 1.000 conversazioni gratuite al mese — per la maggior parte dei ristoranti è più che sufficiente. Oltre questa soglia Meta addebita circa €0,04–0,09 per conversazione direttamente sul tuo account.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Cosa succede ai miei dati se cancello l'account?</div>
+        <div class="faq-a">Hai 30 giorni di tempo per esportare tutti i tuoi dati. Dopo di che vengono eliminati in modo definitivo dai nostri server.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Ristoflow.AI funziona anche senza connessione internet?</div>
+        <div class="faq-a">Il modulo Comande ha una modalità offline limitata. Le altre funzionalità richiedono connessione internet per sincronizzare i dati in tempo reale.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Posso gestire più ristoranti con un unico account?</div>
+        <div class="faq-a">Sì — dai piani Business in su puoi gestire più sedi da un'unica piattaforma, con dati separati e consolidati per ciascuna.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Il piano Hotel include anche il ristorante?</div>
+        <div class="faq-a">Il piano Hotel copre tutte le funzionalità alberghiere (camere, booking online, check-in, operazioni). Per gestire anche il ristorante dell'hotel esiste il piano Full che include entrambi i moduli.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Inizia oggi con una demo gratuita</h2>
+    <p>Ti mostriamo Ristoflow.AI in 30 minuti. Nessun impegno, nessuna carta di credito.</p>
+    <div class="cta-actions">
+      <a href="https://app.ristoflow-ai.com/#/login?register=1" class="btn btn-accent btn-lg" target="_blank">🚀 Provalo gratis 30 giorni →</a>
+      <a href="funzionalita.html" class="btn btn-white btn-lg">Scopri le funzionalità</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="img/logo.png" alt="Ristoflow.AI">Ristoflow.AI</div>
+        <p class="footer-desc">Il sistema operativo per la ristorazione italiana.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Prodotto</h4>
+        <ul>
+          <li><a href="funzionalita.html">Funzionalità</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="https://app.ristoflow-ai.com">Accedi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Azienda</h4>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="mailto:info@ristoflow-ai.com">Contatti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legale</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Termini di servizio</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ristoflow.AI — Tutti i diritti riservati</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Termini</a> · <a href="cookie.html">Cookie</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// ══════════════════════════════════════════════════════════════
+// PREZZI.HTML — carica piani da Supabase in tempo reale
+// ══════════════════════════════════════════════════════════════
+const SUPABASE_URL  = 'https://cuhcscpvhypoaplcmtjk.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1aGNzY3B2aHlwb2FwbGNtdGprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4MjY4MjgsImV4cCI6MjA3OTQwMjgyOH0.q9zAs0oh8F1-whtORHBIORF5jIn1NTS3LvSMWleP0a0';
+
+// Mappa tipo → label leggibile e classe CSS
+const TIPO_MAP = {
+  ristorante: { label: '🍽️ Ristorante',  cls: 'tipo-ristorante' },
+  hotel:      { label: '🏨 Hotel',        cls: 'tipo-hotel' },
+  full:       { label: '⭐ Full',         cls: 'tipo-full' },
+  fondatore:  { label: '👑 Fondatore',    cls: 'tipo-fondatore' },
+  tasting:    { label: '🎫 Tasting',      cls: 'tipo-tasting' },
+};
+
+// Feature key → label leggibile per il sito
+const FEATURE_LABELS = {
+  cassa:               'Comande & Cassa',
+  menu_digitale:       'Menu digitale QR',
+  prenotazioni_base:   'Prenotazioni tavoli',
+  prenotazioni_avanzate: 'Prenotazioni avanzate',
+  ricettario:          'Ricettario & HACCP',
+  food_cost:           'Food cost',
+  produzione:          'Gestione produzione',
+  magazzino:           'Magazzino',
+  acquisti:            'Acquisti & fornitori',
+  venduto:             'Report venduto',
+  margini:             'Analisi margini',
+  dipendenti:          'Gestione dipendenti',
+  hr_timbrature:       'Timbrature GPS',
+  report_kpi:          'Report & KPI',
+  marketing:           'Marketing tools',
+  promo:               'Promo & landing page',
+  fidelity:            'Fidelity clienti',
+  catenarie:           'Catenarie WhatsApp',
+  whatsapp_notifiche:  'Notifiche WhatsApp',
+  chatbot_whatsapp:    'Chatbot WhatsApp',
+  multi_sede:          'Multi-sede',
+  social:              'RistoflowBook',
+  tony_ai:             'Tony AI',
+  hotel_planning:      'Planning camere',
+  hotel_prenotazioni:  'Prenotazioni hotel',
+  hotel_checkin:       'Check-in digitale',
+  hotel_operations:    'Operations & task',
+  booking_online:      'Booking online',
+  fondatore_badge:     'Badge Fondatore',
+  priority_support:    'Supporto prioritario',
+  future_features:     'Accesso anticipato novità',
+};
+
+let piani = [];
+let annuale = false;
+
+async function caricaPiani() {
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/piani_abbonamento?select=*&attivo=eq.true&order=prezzo_mensile.asc`,
+      { headers: { 'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}` } }
+    );
+    piani = await res.json();
+    renderPiani();
+  } catch(e) {
+    document.getElementById('pricing-grid').innerHTML =
+      '<p style="text-align:center;color:#dc2626;">Errore caricamento piani. Ricarica la pagina.</p>';
+  }
+}
+
+function renderPiani() {
+  const grid = document.getElementById('pricing-grid');
+  if (!piani.length) { grid.innerHTML = '<p style="text-align:center;color:#6b7280;">Nessun piano disponibile.</p>'; return; }
+
+  grid.innerHTML = piani.map(p => {
+    const features = p.features && typeof p.features === 'object' ? p.features : {};
+    const featureList = Object.entries(features)
+      .filter(([, v]) => v === true)
+      .map(([k]) => FEATURE_LABELS[k] || k)
+      .slice(0, 8);
+
+    const isAnnuale  = p.tipo_fatturazione === 'annuale';
+    const isTantum   = p.tipo_fatturazione === 'una_tantum';
+    const prezzoBase = annuale && p.prezzo_annuale ? p.prezzo_annuale / 12 : p.prezzo_mensile;
+    const prezzoFmt  = prezzoBase % 1 === 0 ? prezzoBase : prezzoBase.toFixed(0);
+
+    let suffisso = '/mese';
+    let subPrezzo = '';
+    if (isAnnuale) {
+      suffisso = '/anno';
+      subPrezzo = `Pagamento unico annuale`;
+    } else if (isTantum) {
+      suffisso = '';
+      subPrezzo = 'Pagamento una tantum';
+    } else if (annuale && p.prezzo_annuale) {
+      subPrezzo = `€${p.prezzo_annuale}/anno — risparmi €${(p.prezzo_mensile * 12 - p.prezzo_annuale).toFixed(0)}`;
+    }
+
+    const tipo  = TIPO_MAP[p.tipo] || { label: p.tipo || '', cls: '' };
+    const sedi  = p.sedi_max > 90 ? 'Sedi illimitate' : `${p.sedi_max} sed${p.sedi_max === 1 ? 'e' : 'i'}`;
+    const isFeatured = p.popolare === true;
+    const emailSubj = encodeURIComponent(`Interesse piano ${p.nome} — Ristoflow.AI`);
+
+    return `
+      <div class="pricing-card${isFeatured ? ' featured' : ''}">
+        ${isFeatured ? '<div class="pricing-badge">🔥 Più scelto</div>' : ''}
+        ${tipo.label ? `<div class="tipo-tag ${tipo.cls}">${tipo.label}</div>` : ''}
+        <div class="pricing-name">${p.icona || ''} ${p.nome}</div>
+        <div class="pricing-price">€${prezzoFmt}<span>${suffisso}</span></div>
+        <div class="pricing-price-annual">${subPrezzo}</div>
+        <div class="pricing-desc">${p.descrizione || ''}</div>
+        <ul class="pricing-features">
+          ${featureList.map(f => `<li>${f}</li>`).join('')}
+          ${featureList.length === 0 ? '<li>Funzionalità personalizzate</li>' : ''}
+        </ul>
+        <div class="pricing-sedi">📍 ${sedi}</div>
+        <a href="mailto:info@ristoflow-ai.com?subject=${emailSubj}"
+           class="btn ${isFeatured ? 'btn-white' : 'btn-primary'}" style="width:100%;justify-content:center;">
+          Inizia ora
+        </a>
+      </div>
+    `;
+  }).join('');
+
+  // Scroll reveal
+  document.querySelectorAll('.pricing-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, 50);
+  });
+}
+
+// Toggle annuale/mensile
+const toggle = document.getElementById('toggle-annuale');
+const lblMensile = document.getElementById('lbl-mensile');
+const lblAnnuale = document.getElementById('lbl-annuale');
+toggle.addEventListener('change', () => {
+  annuale = toggle.checked;
+  lblMensile.classList.toggle('active', !annuale);
+  lblAnnuale.classList.toggle('active', annuale);
+  renderPiani();
+});
+
+caricaPiani();
+</script>
+
+<!-- Banner RistoflowBook -->
+<div id="rfbook-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,#0E5A7A 0%,#0d7a5a 50%,#c2410c 100%);color:white;display:flex;align-items:center;justify-content:center;gap:16px;padding:12px 20px;box-shadow:0 -4px 20px rgba(0,0,0,0.2);flex-wrap:wrap;">
+  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;"><div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.4);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.5 14.5L4 19l1.5 1.5L10 16m5.5-1.5L20 19l-1.5 1.5L14 16" stroke="white" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.5"/><path d="M12 4v8M8 8h8" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg></div><span style="font-weight:700;font-size:15px;">RistoflowBook</span></div>
+  <span style="font-size:14px;opacity:0.92;text-align:center;">Il social network della ristorazione italiana — recensioni, ricette, momenti e offerte</span>
+  <a href="https://social.ristoflow-ai.com" target="_blank" style="background:white;color:#0E5A7A;font-weight:700;font-size:13px;padding:8px 18px;border-radius:20px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Scopri →</a>
+  <button onclick="document.getElementById('rfbook-banner').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:20px;line-height:1;padding:0 4px;flex-shrink:0;">×</button>
+</div>
+<style>body{padding-bottom:70px;}@media(max-width:600px){#rfbook-banner{gap:10px;padding:10px 14px;}#rfbook-banner span:nth-child(2){display:none;}}</style>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src="https://embed.tawk.to/6a2a7b7c0514041c3544c5e9/1jqqv4occ";
+s1.charset="UTF-8";
+s1.setAttribute("crossorigin","*");
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+</body>
+</html>
