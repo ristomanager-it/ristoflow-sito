@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funzionalità — Ristoflow.AI</title>
+  <meta name="description" content="Tutti i moduli di Ristoflow.AI: comande, food cost, magazzino, HR, WhatsApp, Tony AI e molto altro.">
+  <link rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .feature-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .feature-detail:last-child { border-bottom: none; }
+    .feature-detail.reverse { direction: rtl; }
+    .feature-detail.reverse > * { direction: ltr; }
+    .feature-detail-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    .feature-detail h2 { margin-bottom: 16px; }
+    .feature-detail p { margin-bottom: 16px; }
+    .feature-list { list-style: none; margin-top: 16px; }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 0.95rem;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-list li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .feature-mockup {
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .feature-mockup-header {
+      background: var(--primary);
+      padding: 12px 16px;
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .feature-mockup-body { padding: 20px; background: #f8fafc; }
+    .mock-row {
+      background: white;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 8px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+    }
+    .mock-badge {
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .mock-badge-green { background: #d1fae5; color: #065f46; }
+    .mock-badge-yellow { background: #fef3c7; color: #92400e; }
+    .mock-badge-red { background: #fee2e2; color: #991b1b; }
+    .mock-badge-blue { background: var(--primary-light); color: var(--primary); }
+    @media (max-width: 768px) {
+      .feature-detail { grid-template-columns: 1fr; gap: 32px; }
+      .feature-detail.reverse { direction: ltr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo.png" alt="Ristoflow.AI">Ristoflow.AI
+      </a>
+      <ul class="nav-links">
+        <li><a href="funzionalita.html">Funzionalità</a></li>
+        <li><a href="prezzi.html">Prezzi</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="mailto:info@ristoflow-ai.com" class="btn btn-outline">Contattaci</a>
+        <a href="https://app.ristoflow-ai.com" class="btn btn-primary" target="_blank">Apri l'app →</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="section-eyebrow">Funzionalità</span>
+    <h1>Tutto quello che serve per gestire il tuo ristorante</h1>
+    <p>15+ moduli integrati, progettati da chi fa ristorazione ogni giorno. Ogni funzione risolve un problema reale.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- OPERATIVO -->
+    <div class="feature-detail">
+      <div>
+        <div class="feature-detail-icon">🪑</div>
+        <h2>Comande & Cassa</h2>
+        <p>Gestione completa del servizio sala — dai tavoli al pagamento, tutto da smartphone o tablet.</p>
+        <ul class="feature-list">
+          <li>Mappa tavoli interattiva con stato in tempo reale</li>
+          <li>Ordini per portata con display cucina integrato</li>
+          <li>Pagamenti divisi per persona o alla romana</li>
+          <li>Metodi di pagamento misti (contante + carta)</li>
+          <li>Riepilogo IVA per aliquota (0/4/10/22%)</li>
+          <li>PIN di accesso per ogni operatore</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">🪑 Comande — Sala</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>Tavolo 4 — 4 coperti</span><span class="mock-badge mock-badge-yellow">In servizio</span></div>
+          <div class="mock-row"><span>Tavolo 7 — 2 coperti</span><span class="mock-badge mock-badge-green">Libero</span></div>
+          <div class="mock-row"><span>Tavolo 12 — 8 coperti</span><span class="mock-badge mock-badge-red">Conto richiesto</span></div>
+          <div class="mock-row"><span>Tavolo 2 — 6 coperti</span><span class="mock-badge mock-badge-blue">Prenotato 20:30</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BILANCIO -->
+    <div class="feature-detail reverse">
+      <div>
+        <div class="feature-detail-icon">📊</div>
+        <h2>Bilancio & Food Cost</h2>
+        <p>Controllo finanziario in tempo reale. Sai sempre dove stai con i numeri, senza aspettare il commercialista.</p>
+        <ul class="feature-list">
+          <li>P&L live aggiornato in tempo reale</li>
+          <li>Classificazione automatica fatture con AI</li>
+          <li>Food cost per ricetta, per categoria e per periodo</li>
+          <li>Fascicolo IVA per aliquota</li>
+          <li>Confronto budget vs consuntivo</li>
+          <li>Analisi margini per piatto e per canale</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">📊 Bilancio — Questo mese</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>Ricavi totali</span><strong style="color:var(--accent)">€ 48.320</strong></div>
+          <div class="mock-row"><span>Costo materie prime</span><strong style="color:#f59e0b">€ 13.530 (28%)</strong></div>
+          <div class="mock-row"><span>Costo del lavoro</span><strong style="color:#f59e0b">€ 15.944 (33%)</strong></div>
+          <div class="mock-row"><span>Margine operativo</span><strong style="color:var(--accent)">€ 18.846 (39%)</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAGAZZINO -->
+    <div class="feature-detail">
+      <div>
+        <div class="feature-detail-icon">📦</div>
+        <h2>Magazzino & Acquisti</h2>
+        <p>Giacenze sempre aggiornate, alert automatici sottoscorta e ordini fornitori in un click.</p>
+        <ul class="feature-list">
+          <li>Giacenze in tempo reale per sede</li>
+          <li>OCR automatico fatture fornitori</li>
+          <li>Alert sottoscorta configurabile per prodotto</li>
+          <li>Ordini fornitori con suggerimento automatico</li>
+          <li>Storico prezzi e rilevazione anomalie</li>
+          <li>Movimenti di magazzino tracciati</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">📦 Magazzino — Alert</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>⚠️ Olio EVO — 2L rimasti</span><span class="mock-badge mock-badge-red">Sottoscorta</span></div>
+          <div class="mock-row"><span>⚠️ Farina 00 — 5kg rimasti</span><span class="mock-badge mock-badge-yellow">Quasi esaurito</span></div>
+          <div class="mock-row"><span>✅ Pomodori San Marzano</span><span class="mock-badge mock-badge-green">OK</span></div>
+          <div class="mock-row"><span>✅ Parmigiano Reggiano</span><span class="mock-badge mock-badge-green">OK</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HR -->
+    <div class="feature-detail reverse">
+      <div>
+        <div class="feature-detail-icon">👥</div>
+        <h2>HR & Personale</h2>
+        <p>Gestione completa del personale — dalle timbrature alle ferie, dal fascicolo dipendente ai documenti.</p>
+        <ul class="feature-list">
+          <li>Timbrature con validazione GPS geofencing</li>
+          <li>Gestione richieste ferie e permessi</li>
+          <li>Fascicolo digitale per ogni dipendente</li>
+          <li>Upload e archiviazione documenti HR</li>
+          <li>KPI ore lavorate, straordinari, ferie residue</li>
+          <li>Export presenze CSV/PDF</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">👥 Personale in turno oggi</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>Marco R. — Sala</span><span class="mock-badge mock-badge-green">Entrato 10:00</span></div>
+          <div class="mock-row"><span>Sofia M. — Cucina</span><span class="mock-badge mock-badge-green">Entrata 09:30</span></div>
+          <div class="mock-row"><span>Luca B. — Bar</span><span class="mock-badge mock-badge-yellow">Ferie approvate</span></div>
+          <div class="mock-row"><span>Anna T. — Sala</span><span class="mock-badge mock-badge-blue">Turno ore 18:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHATSAPP -->
+    <div class="feature-detail">
+      <div>
+        <div class="feature-detail-icon">📱</div>
+        <h2>WhatsApp Automation</h2>
+        <p>Trasforma WhatsApp nel tuo canale di acquisizione e fidelizzazione clienti. Automatico, intelligente, sempre attivo.</p>
+        <ul class="feature-list">
+          <li>Inbox conversazioni con intent detection AI</li>
+          <li>Risposte automatiche per prenotazioni, orari, menu</li>
+          <li>Template personalizzabili per ogni comunicazione</li>
+          <li>Conferme prenotazione automatiche</li>
+          <li>Catenarie di follow-up post-visita</li>
+          <li>Badge notifiche in-app per messaggi non letti</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">📱 WhatsApp Inbox</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>Mario B. — Prenotazione</span><span class="mock-badge mock-badge-blue">Risposto</span></div>
+          <div class="mock-row"><span>Laura C. — Info menu</span><span class="mock-badge mock-badge-green">Auto-risposto</span></div>
+          <div class="mock-row"><span>Giovanni M. — Reclamo</span><span class="mock-badge mock-badge-red">Da gestire</span></div>
+          <div class="mock-row"><span>Anna R. — Conferma</span><span class="mock-badge mock-badge-green">Confermata</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TONY AI -->
+    <div class="feature-detail reverse">
+      <div>
+        <div class="feature-detail-icon">🤖</div>
+        <h2>Tony AI — Il tuo consulente</h2>
+        <p>Tony non è un chatbot generico. È un assistente addestrato su 100+ best practice della ristorazione italiana, che conosce i tuoi dati in tempo reale.</p>
+        <ul class="feature-list">
+          <li>Analisi vendite, food cost e trend in linguaggio naturale</li>
+          <li>Suggerimenti produzione basati su venduto e prenotazioni</li>
+          <li>Testi per campagne Meta e Instagram con metodo AIDA</li>
+          <li>Creazione ricette via voce con salvataggio automatico</li>
+          <li>Supporto emotivo per titolari, manager e dipendenti</li>
+          <li>Memoria delle decisioni strategiche del tuo locale</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">🤖 Tony AI</div>
+        <div class="feature-mockup-body">
+          <div style="background:var(--primary-light);padding:10px;border-radius:8px;font-size:0.8rem;margin-bottom:8px;">Come stanno andando le vendite?</div>
+          <div style="background:white;padding:10px;border-radius:8px;font-size:0.8rem;margin-bottom:8px;border:1px solid var(--border);">Questa settimana +8% rispetto alla scorsa. Il risotto al tartufo è il più venduto (124 porzioni). Margine stimato €18/pz 🍽️</div>
+          <div style="background:var(--primary-light);padding:10px;border-radius:8px;font-size:0.8rem;margin-bottom:8px;">Scrivimi un post Instagram</div>
+          <div style="background:white;padding:10px;border-radius:8px;font-size:0.8rem;border:1px solid var(--border);">Pronto! "Domenica da Campo Antico — dove ogni piatto racconta il territorio. Prenota il tuo tavolo 👇"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMO -->
+    <div class="feature-detail">
+      <div>
+        <div class="feature-detail-icon">🎁</div>
+        <h2>Promo & Marketing</h2>
+        <p>Acquisisci nuovi clienti, fidelizza quelli esistenti e automatizza il follow-up con catenarie WhatsApp.</p>
+        <ul class="feature-list">
+          <li>Landing page promo mobile-first con QR code</li>
+          <li>Form raccolta lead con consenso GDPR</li>
+          <li>Catenarie automatiche post-visita su WhatsApp</li>
+          <li>Template campagne Meta Ads integrati</li>
+          <li>Tracciamento con Meta Pixel e Google Tag</li>
+          <li>Segmentazione clienti per LTV e frequenza</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">🎁 Catenaria Benvenuto</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>📱 Giorno 1 — Benvenuto</span><span class="mock-badge mock-badge-green">Inviato</span></div>
+          <div class="mock-row"><span>⭐ Giorno 7 — Richiesta recensione</span><span class="mock-badge mock-badge-green">Inviato</span></div>
+          <div class="mock-row"><span>🎉 Giorno 30 — Evento speciale</span><span class="mock-badge mock-badge-blue">Programmato</span></div>
+          <div class="mock-row"><span>🎂 Compleanno — Regalo</span><span class="mock-badge mock-badge-blue">Automatico</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Vuoi vedere Ristoflow.AI in azione?</h2>
+    <p>Ti mostriamo tutto in una demo gratuita di 30 minuti, adattata al tuo tipo di locale.</p>
+    <div class="cta-actions">
+      <a href="mailto:info@ristoflow-ai.com?subject=Richiesta demo Ristoflow.AI" class="btn btn-accent btn-lg">Richiedi demo gratuita →</a>
+      <a href="prezzi.html" class="btn btn-white btn-lg">Vedi i prezzi</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="img/logo.png" alt="Ristoflow.AI">Ristoflow.AI</div>
+        <p class="footer-desc">Il sistema operativo per la ristorazione italiana.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Prodotto</h4>
+        <ul>
+          <li><a href="funzionalita.html">Funzionalità</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="https://app.ristoflow-ai.com">Accedi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Azienda</h4>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="mailto:info@ristoflow-ai.com">Contatti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legale</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Termini di servizio</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ristoflow.AI — Tutti i diritti riservati</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Termini</a> · <a href="cookie.html">Cookie</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src="https://embed.tawk.to/6a2a7b7c0514041c3544c5e9/1jqqv4occ";
+s1.charset="UTF-8";
+s1.setAttribute("crossorigin","*");
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- BANNER FISSO RISTOFLOWBOOK -->
+<div id="rfbook-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,#0E5A7A 0%,#0d7a5a 50%,#c2410c 100%);color:white;display:flex;align-items:center;justify-content:center;gap:16px;padding:12px 20px;box-shadow:0 -4px 20px rgba(0,0,0,0.2);flex-wrap:wrap;">
+  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;"><div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.4);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.5 14.5L4 19l1.5 1.5L10 16m5.5-1.5L20 19l-1.5 1.5L14 16" stroke="white" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.5"/><path d="M12 4v8M8 8h8" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg></div><span style="font-weight:700;font-size:15px;">RistoflowBook</span></div>
+  <span style="font-size:14px;opacity:0.92;text-align:center;">Il social network della ristorazione italiana — recensioni, ricette, momenti e offerte</span>
+  <a href="https://social.ristoflow-ai.com" target="_blank" style="background:white;color:#0E5A7A;font-weight:700;font-size:13px;padding:8px 18px;border-radius:20px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Scopri →</a>
+  <button onclick="document.getElementById('rfbook-banner').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:20px;line-height:1;padding:0 4px;flex-shrink:0;">×</button>
+</div>
+<style>body{padding-bottom:70px;}@media(max-width:600px){#rfbook-banner{gap:10px;padding:10px 14px;}#rfbook-banner span:nth-child(2){display:none;}}</style>
+
+</body>
+</html>
