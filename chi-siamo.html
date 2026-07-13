@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi siamo — Ristoflow.AI</title>
+  <meta name="description" content="Ristoflow.AI è nato nelle cucine di Campo Antico Ricevimenti. La storia di come un ristoratore ha costruito il proprio gestionale.">
+  <link rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .timeline { position: relative; padding-left: 32px; margin-top: 40px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+    }
+    .timeline-item { position: relative; padding-bottom: 40px; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -37px; top: 4px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid white;
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+    .timeline-date {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .timeline-item h3 { margin-bottom: 6px; font-size: 1rem; }
+    .timeline-item p { font-size: 0.9rem; }
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .value-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      text-align: center;
+    }
+    .value-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .value-card h3 { margin-bottom: 8px; }
+    @media (max-width: 768px) {
+      .value-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo.png" alt="Ristoflow.AI">Ristoflow.AI
+      </a>
+      <ul class="nav-links">
+        <li><a href="funzionalita.html">Funzionalità</a></li>
+        <li><a href="prezzi.html">Prezzi</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="mailto:info@ristoflow-ai.com" class="btn btn-outline">Contattaci</a>
+        <a href="https://app.ristoflow-ai.com" class="btn btn-primary" target="_blank">Apri l'app →</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="section-eyebrow">Chi siamo</span>
+    <h1>Costruito sul campo, non in un ufficio</h1>
+    <p>Ristoflow.AI è nato nelle cucine di Campo Antico Ricevimenti. Da un problema reale, una soluzione reale.</p>
+  </div>
+</div>
+
+<!-- STORIA -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+      <div>
+        <span class="story-badge">🍽️ La storia</span>
+        <h2 style="margin:16px 0 20px;">Da ristoratore a sviluppatore — per necessità</h2>
+
+        <p>Ho iniziato a gestire Campo Antico Ricevimenti con fogli Excel, WhatsApp e tanta buona volontà. Funzionava — finché non ho aperto la seconda sede, poi la terza, poi la quarta.</p>
+
+        <p>A quel punto la situazione era questa: 5 app diverse che non si parlavano tra loro, ore spese ogni settimana a incrociare dati, food cost che sfuggiva di mano senza che me ne accorgessi, e dipendenti che timbravano su carta.</p>
+
+        <p>Ho cercato un gestionale che risolvesse tutto questo. Ne ho provati diversi — erano o troppo complessi, o troppo semplici, o pensati per realtà completamente diverse da quella italiana.</p>
+
+        <p>Così ho preso una decisione: me lo costruisco io.</p>
+
+        <p>Non avevo esperienza di sviluppo software. Ho imparato mentre costruivo. Ogni funzione di Ristoflow.AI risponde a un problema che ho vissuto in prima persona, nelle mie cucine, con il mio personale, con i miei clienti.</p>
+
+        <div class="story-quote" style="margin-top:32px;">
+          <p>"La logica ti porta da A a B. L'immaginazione ti porta ovunque."</p>
+          <cite>— Albert Einstein</cite>
+        </div>
+      </div>
+
+      <div>
+        <div style="background:var(--bg);border-radius:var(--radius-lg);padding:32px;border:1px solid var(--border);">
+          <h3 style="margin-bottom:24px;color:var(--primary);">Campo Antico Ricevimenti</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+            <div style="text-align:center;background:white;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);">
+              <strong style="display:block;font-size:2rem;color:var(--primary);font-family:'Sora',sans-serif;">4</strong>
+              <span style="font-size:0.8rem;color:var(--text-light);">Sedi operative</span>
+            </div>
+            <div style="text-align:center;background:white;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);">
+              <strong style="display:block;font-size:2rem;color:var(--accent);font-family:'Sora',sans-serif;">20+</strong>
+              <span style="font-size:0.8rem;color:var(--text-light);">Dipendenti gestiti</span>
+            </div>
+            <div style="text-align:center;background:white;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);">
+              <strong style="display:block;font-size:2rem;color:var(--primary);font-family:'Sora',sans-serif;">100+</strong>
+              <span style="font-size:0.8rem;color:var(--text-light);">Best practice in AI</span>
+            </div>
+            <div style="text-align:center;background:white;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);">
+              <strong style="display:block;font-size:2rem;color:var(--accent);font-family:'Sora',sans-serif;">2026</strong>
+              <span style="font-size:0.8rem;color:var(--text-light);">Lancio commerciale</span>
+            </div>
+          </div>
+          <p style="font-size:0.9rem;color:var(--text-light);text-align:center;">
+            Ristoflow.AI è testato ogni giorno in produzione su 4 sedi reali prima di essere rilasciato ai clienti.
+          </p>
+        </div>
+
+        <!-- Timeline -->
+        <div style="margin-top:40px;">
+          <h3 style="margin-bottom:8px;">Come siamo arrivati qui</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">2020</div>
+              <h3>Apertura Campo Antico</h3>
+              <p>Prima sede operativa. Gestione con Excel e WhatsApp.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2022</div>
+              <h3>Espansione a 3 sedi</h3>
+              <p>Il caos inizia. 5 app diverse, dati non sincronizzati.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2024</div>
+              <h3>Nasce Ristoflow.AI</h3>
+              <p>Inizio sviluppo del primo modulo: comande e cassa.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2025</div>
+              <h3>15+ moduli completati</h3>
+              <p>HR, WhatsApp API, Tony AI, marketing automation.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2026</div>
+              <h3>Lancio commerciale</h3>
+              <p>Ristoflow.AI apre ai primi clienti esterni. Obiettivo: 50 entro settembre.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORI -->
+<section class="section" style="background:var(--bg);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">I nostri valori</span>
+      <h2>Quello in cui crediamo</h2>
+      <p>Ristoflow.AI è costruito su principi che vengono direttamente dall'esperienza in sala e in cucina.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-icon">🔍</div>
+        <h3>Semplicità prima di tutto</h3>
+        <p>Un ristoratore non ha tempo per imparare software complicati. Ogni funzione deve essere intuitiva e usabile da smartphone in 30 secondi.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">📊</div>
+        <h3>I numeri salvano il ristorante</h3>
+        <p>La maggior parte dei ristoranti chiude per problemi finanziari evitabili. Ristoflow.AI mette i numeri giusti davanti agli occhi giusti, al momento giusto.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3>Da ristoratore a ristoratore</h3>
+        <p>Non siamo consulenti. Siamo operatori che gestiscono ristoranti ogni giorno e condividono quello che funziona con chi affronta le stesse sfide.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🚀</div>
+        <h3>Costruire e migliorare sempre</h3>
+        <p>Ristoflow.AI non è mai finito. Ogni settimana nuove funzioni, ogni mese nuovi moduli. Il feedback dei clienti guida ogni decisione di sviluppo.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🛡️</div>
+        <h3>Dati tuoi, sempre</h3>
+        <p>I dati del tuo ristorante sono tuoi. Non li vendiamo, non li usiamo per addestrare AI di terzi, non li condividiamo con nessuno senza il tuo consenso.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">❤️</div>
+        <h3>Il cuore conquista</h3>
+        <p>La testa preserva il business, ma è il cuore che conquista i clienti. Ristoflow.AI ti dà gli strumenti tecnici per liberare il tempo da dedicare alle persone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section class="section">
+  <div class="container">
+    <div style="max-width:600px;margin:0 auto;text-align:center;">
+      <span class="section-eyebrow">Contatti</span>
+      <h2 style="margin:12px 0 16px;">Parliamo del tuo ristorante</h2>
+      <p style="margin-bottom:32px;">Ogni demo è personalizzata. Ti mostriamo esattamente le funzioni che risolvono i tuoi problemi specifici.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="mailto:info@ristoflow-ai.com" class="btn btn-primary btn-lg">📧 Scrivici</a>
+        <a href="mailto:info@ristoflow-ai.com?subject=Richiesta demo Ristoflow.AI" class="btn btn-outline btn-lg">📅 Richiedi demo</a>
+      </div>
+      <p style="margin-top:24px;font-size:0.9rem;color:var(--text-light);">
+        Rispondiamo entro 24 ore, dal lunedì al sabato.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Pronto a gestire il tuo ristorante in modo diverso?</h2>
+    <p>Unisciti ai primi clienti Ristoflow.AI e porta il tuo locale al livello successivo.</p>
+    <div class="cta-actions">
+      <a href="mailto:info@ristoflow-ai.com?subject=Richiesta demo Ristoflow.AI" class="btn btn-accent btn-lg">Richiedi demo gratuita →</a>
+      <a href="prezzi.html" class="btn btn-white btn-lg">Vedi i prezzi</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="img/logo.png" alt="Ristoflow.AI">Ristoflow.AI</div>
+        <p class="footer-desc">Il sistema operativo per la ristorazione italiana.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Prodotto</h4>
+        <ul>
+          <li><a href="funzionalita.html">Funzionalità</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="https://app.ristoflow-ai.com">Accedi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Azienda</h4>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="mailto:info@ristoflow-ai.com">Contatti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legale</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Termini di servizio</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ristoflow.AI — Tutti i diritti riservati</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Termini</a> · <a href="cookie.html">Cookie</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src="https://embed.tawk.to/6a2a7b7c0514041c3544c5e9/1jqqv4occ";
+s1.charset="UTF-8";
+s1.setAttribute("crossorigin","*");
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<!-- BANNER FISSO RISTOFLOWBOOK -->
+<div id="rfbook-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,#0E5A7A 0%,#0d7a5a 50%,#c2410c 100%);color:white;display:flex;align-items:center;justify-content:center;gap:16px;padding:12px 20px;box-shadow:0 -4px 20px rgba(0,0,0,0.2);flex-wrap:wrap;">
+  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;"><div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.4);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.5 14.5L4 19l1.5 1.5L10 16m5.5-1.5L20 19l-1.5 1.5L14 16" stroke="white" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.5"/><path d="M12 4v8M8 8h8" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg></div><span style="font-weight:700;font-size:15px;">RistoflowBook</span></div>
+  <span style="font-size:14px;opacity:0.92;text-align:center;">Il social network della ristorazione italiana — recensioni, ricette, momenti e offerte</span>
+  <a href="https://social.ristoflow-ai.com" target="_blank" style="background:white;color:#0E5A7A;font-weight:700;font-size:13px;padding:8px 18px;border-radius:20px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Scopri →</a>
+  <button onclick="document.getElementById('rfbook-banner').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:20px;line-height:1;padding:0 4px;flex-shrink:0;">×</button>
+</div>
+<style>body{padding-bottom:70px;}@media(max-width:600px){#rfbook-banner{gap:10px;padding:10px 14px;}#rfbook-banner span:nth-child(2){display:none;}}</style>
+
+</body>
+</html>
