@@ -160,7 +160,8 @@
       <div style="font-size:2.6rem;font-weight:800;line-height:1;">€1.500<span style="font-size:1rem;font-weight:600;opacity:.85;">/anno, a vita</span></div>
       <div style="margin:18px 0 8px;font-size:1.05rem;font-weight:700;">Restano <span id="posti-rimasti">40</span> posti su 40</div>
       <div style="max-width:340px;height:8px;background:rgba(255,255,255,.2);border-radius:99px;margin:0 auto 22px;overflow:hidden;"><div id="posti-barra" style="height:100%;width:0%;background:#a7f3d0;border-radius:99px;transition:width .6s;"></div></div>
-      <a href="mailto:info@ristoflow-ai.com?subject=Voglio%20un%20posto%20Fondatore%20Ristoflow" class="btn btn-white" style="font-size:1.05rem;padding:14px 32px;">Prenota il tuo posto Fondatore →</a>
+      <a href="https://wa.me/393349487644?text=Ciao!%20Voglio%20un%20posto%20Fondatore%20Ristoflow%202026" class="btn btn-white" style="font-size:1.05rem;padding:14px 32px;" target="_blank" rel="noopener">💬 Prenota il tuo posto Fondatore →</a>
+      <div style="margin-top:10px;"><a href="mailto:info@ristoflow-ai.com?subject=Voglio%20un%20posto%20Fondatore%20Ristoflow" style="color:rgba(255,255,255,0.8);font-size:13px;text-decoration:underline;">o scrivici via email</a></div>
       <p style="opacity:.75;font-size:.82rem;margin-top:14px;">Dopo i 40 posti si torna al listino mensile qui sotto.</p>
     </div>
 
@@ -424,6 +425,7 @@ function renderPiani() {
     const sedi  = p.sedi_max > 90 ? 'Sedi illimitate' : `${p.sedi_max} sed${p.sedi_max === 1 ? 'e' : 'i'}`;
     const isFeatured = p.popolare === true;
     const emailSubj = encodeURIComponent(`Interesse piano ${p.nome} — Ristoflow.AI`);
+    const waMsg = encodeURIComponent(`Ciao! Sono interessato al piano ${p.nome} di Ristoflow. Possiamo sentirci?`);
 
     return `
       <div class="pricing-card${isFeatured ? ' featured' : ''}">
@@ -438,9 +440,13 @@ function renderPiani() {
           ${featureList.length === 0 ? '<li>Funzionalità personalizzate</li>' : ''}
         </ul>
         <div class="pricing-sedi">📍 ${sedi}</div>
+        <a href="https://wa.me/393349487644?text=${waMsg}"
+           class="btn ${isFeatured ? 'btn-white' : 'btn-primary'}" style="width:100%;justify-content:center;" target="_blank" rel="noopener">
+          💬 Richiedi attivazione
+        </a>
         <a href="mailto:info@ristoflow-ai.com?subject=${emailSubj}"
-           class="btn ${isFeatured ? 'btn-white' : 'btn-primary'}" style="width:100%;justify-content:center;">
-          Inizia ora
+           style="display:block;text-align:center;margin-top:8px;font-size:13px;color:${isFeatured ? 'rgba(255,255,255,0.85)' : '#6b7280'};text-decoration:underline;">
+          o scrivici via email
         </a>
       </div>
     `;
