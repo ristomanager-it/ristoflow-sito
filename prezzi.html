@@ -426,6 +426,7 @@ function renderPiani() {
     const isFeatured = p.popolare === true;
     const emailSubj = encodeURIComponent(`Interesse piano ${p.nome} — Ristoflow.AI`);
     const waMsg = encodeURIComponent(`Ciao! Sono interessato al piano ${p.nome} di Ristoflow. Possiamo sentirci?`);
+    const isStarter = (p.slug === 'starter') || /starter/i.test(p.nome);
 
     return `
       <div class="pricing-card${isFeatured ? ' featured' : ''}">
@@ -440,14 +441,12 @@ function renderPiani() {
           ${featureList.length === 0 ? '<li>Funzionalità personalizzate</li>' : ''}
         </ul>
         <div class="pricing-sedi">📍 ${sedi}</div>
-        <a href="https://wa.me/393349487644?text=${waMsg}"
-           class="btn ${isFeatured ? 'btn-white' : 'btn-primary'}" style="width:100%;justify-content:center;" target="_blank" rel="noopener">
-          💬 Richiedi attivazione
-        </a>
-        <a href="mailto:info@ristoflow-ai.com?subject=${emailSubj}"
-           style="display:block;text-align:center;margin-top:8px;font-size:13px;color:${isFeatured ? 'rgba(255,255,255,0.85)' : '#6b7280'};text-decoration:underline;">
-          o scrivici via email
-        </a>
+        ${isStarter
+          ? `<a href="https://app.ristoflow-ai.com/#/login?register=1" class="btn ${isFeatured ? 'btn-white' : 'btn-primary'}" style="width:100%;justify-content:center;" target="_blank" rel="noopener">🚀 Prova gratis 30 giorni</a>
+             <a href="https://wa.me/393349487644?text=${waMsg}" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:8px;font-size:13px;color:${isFeatured ? 'rgba(255,255,255,0.85)' : '#6b7280'};text-decoration:underline;">o parlane con noi</a>`
+          : `<a href="https://wa.me/393349487644?text=${waMsg}" class="btn ${isFeatured ? 'btn-white' : 'btn-primary'}" style="width:100%;justify-content:center;" target="_blank" rel="noopener">💬 Richiedi attivazione</a>
+             <a href="mailto:info@ristoflow-ai.com?subject=${emailSubj}" style="display:block;text-align:center;margin-top:8px;font-size:13px;color:${isFeatured ? 'rgba(255,255,255,0.85)' : '#6b7280'};text-decoration:underline;">o scrivici via email</a>`
+        }
       </div>
     `;
   }).join('');
