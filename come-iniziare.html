@@ -4,38 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Come iniziare — Ristoflow.AI</title>
-  <meta name="description" content="Dalla creazione della password ai margini reali del tuo ristorante: la guida passo-passo per rendere operativo Ristoflow. Con Tony che fa il lavoro pesante.">
+  <meta name="description" content="Iniziare è semplice e non sei mai solo. In pochi giorni il tuo locale è operativo e vedi i margini reali. Ti guidiamo passo passo, o lo facciamo per te.">
   <link rel="icon" href="img/logo.png">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .prep { background: var(--primary-light, #eef6fb); border-radius: 16px; padding: 28px; margin-top: 24px; }
-    .prep ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; }
-    .prep li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.95rem; }
-    .prep li b { color: var(--primary); }
-    .steps { margin-top: 8px; }
-    .step {
-      position: relative; display: grid; grid-template-columns: 56px 1fr; gap: 20px;
-      padding: 26px 0; border-bottom: 1px solid #eef1f4;
-    }
-    .step:last-child { border-bottom: none; }
-    .step-num {
-      width: 48px; height: 48px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #fff; font-weight: 800; font-size: 1.15rem;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .step h3 { margin: 2px 0 8px; font-size: 1.15rem; }
-    .step p { font-size: 0.95rem; margin: 0 0 8px; color: #475569; }
-    .step .why {
-      display: inline-block; background: #fff7ed; color: #9a3412;
-      border: 1px solid #fed7aa; border-radius: 8px; padding: 6px 10px;
-      font-size: 0.85rem; font-weight: 600;
-    }
-    .step .first { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
-    .cta-band { background: linear-gradient(135deg, var(--primary), var(--accent)); color:#fff; }
-    .cta-band h2 { color:#fff; }
-    .cta-band p { color: rgba(255,255,255,0.9); }
-    @media (max-width: 640px){ .step{ grid-template-columns: 44px 1fr; gap:14px; } .step-num{ width:40px;height:40px;font-size:1rem; } }
+    .phase-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
+    .phase { background:#fff; border:1px solid #eef1f4; border-radius:16px; padding:28px; }
+    .phase .n { width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:14px; }
+    .phase h3 { margin:0 0 8px; font-size:1.1rem; }
+    .phase p { margin:0; font-size:0.95rem; color:#475569; }
+    .help-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px; }
+    .help-card { background:#fff; border:1px solid #eef1f4; border-radius:16px; padding:26px; }
+    .help-card h3 { margin:0 0 8px; font-size:1.1rem; }
+    .help-card p { margin:0; font-size:0.95rem; color:#475569; }
+    .cta-band { background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; }
+    .cta-band h2 { color:#fff; } .cta-band p { color:rgba(255,255,255,0.9); }
+    @media (max-width:760px){ .phase-grid,.help-grid{ grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -43,9 +27,7 @@
 <nav class="navbar">
   <div class="container">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="img/logo.png" alt="Ristoflow.AI">Ristoflow.AI
-      </a>
+      <a href="index.html" class="nav-logo"><img src="img/logo.png" alt="Ristoflow.AI">Ristoflow.AI</a>
       <ul class="nav-links">
         <li><a href="funzionalita.html">Funzionalità</a></li>
         <li><a href="prezzi.html">Prezzi</a></li>
@@ -68,122 +50,55 @@
 <div class="page-hero">
   <div class="container">
     <span class="section-eyebrow">Come iniziare</span>
-    <h1>Dalla password ai margini reali del tuo locale</h1>
-    <p>Non serve essere esperti di computer: Ristoflow e <strong>Tony</strong>, il tuo assistente, fanno il lavoro pesante. Segui i passi nell'ordine e sei operativo — in genere in 1-2 giorni.</p>
+    <h1>Iniziare è semplice — e non sei mai solo</h1>
+    <p>In pochi giorni il tuo locale è operativo e, per la prima volta, vedi i <strong>margini reali</strong> di ogni piatto. Ti guidiamo passo passo — oppure lo facciamo noi per te.</p>
   </div>
 </div>
 
-<!-- PREPARA -->
+<!-- 3 MOMENTI -->
 <section class="section">
-  <div class="container" style="max-width:860px;">
-    <span class="section-eyebrow">Prima di iniziare</span>
-    <h2>Cosa preparare (15 minuti)</h2>
-    <p>Tieni a portata di mano queste cose: ti serviranno lungo il percorso.</p>
-    <div class="prep">
-      <ul>
-        <li>🎯 <span><b>La tua identità:</b> perché esiste il tuo locale, cosa lo rende diverso, i tuoi valori.</span></li>
-        <li>🎨 <span><b>Logo, colori e foto belle</b> del locale e dei piatti.</span></li>
-        <li>🕒 <span><b>Orari, contatti e social.</b></span></li>
-        <li>🧾 <span><b>Fatture dei fornitori</b> in formato elettronico (XML), ultimi 2-3 mesi.</span></li>
-        <li>📋 <span><b>Il menù</b> con i prezzi (foto o PDF).</span></li>
-        <li>📷 <span><b>Le ricette</b> dei piatti più venduti — anche scritte a mano.</span></li>
-        <li>👥 <span><b>Elenco dipendenti</b> (nome, ruolo, paga, sede).</span></li>
-        <li>💳 <span><b>Il sistema di cassa</b> che usi (es. iPratico).</span></li>
-      </ul>
+  <div class="container">
+    <div class="section-header" style="text-align:center;">
+      <span class="section-eyebrow">Il percorso</span>
+      <h2>In tre momenti sei operativo</h2>
+      <p>Niente configurazioni infinite: ti accompagniamo dall'inizio alla prima volta che vedi i tuoi numeri.</p>
+    </div>
+    <div class="phase-grid">
+      <div class="phase">
+        <div class="n">1</div>
+        <h3>Racconti il tuo locale</h3>
+        <p>La tua identità, il tuo stile, le tue sedi. È da qui che tutto prende la tua voce.</p>
+      </div>
+      <div class="phase">
+        <div class="n">2</div>
+        <h3>Porti dentro i tuoi dati</h3>
+        <p>Fornitori, menù, piatti e team. Li sistemiamo insieme, con calma e nell'ordine giusto.</p>
+      </div>
+      <div class="phase">
+        <div class="n">3</div>
+        <h3>Vedi i tuoi numeri</h3>
+        <p>Incassi, coperti e margine in tempo reale, piatto per piatto. Sai finalmente dove guadagni.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PASSI -->
+<!-- NON SEI SOLO -->
 <section class="section" style="background:#fafbfc;">
-  <div class="container" style="max-width:860px;">
-    <span class="section-eyebrow">Il percorso</span>
-    <h2>Passo per passo</h2>
-    <div class="steps">
-
-      <div class="step">
-        <div class="step-num">1</div>
-        <div>
-          <h3>⭐ Identità — la prima cosa da fare</h3>
-          <p>In <b>Persone e Organizzazione → Identità</b> racconta il tuo perché, i valori e cosa ti rende unico.</p>
-          <span class="why first">Da qui Tony e tutte le pagine pubbliche prendono la voce del tuo locale.</span>
-        </div>
+  <div class="container" style="max-width:900px;">
+    <div class="section-header" style="text-align:center;">
+      <span class="section-eyebrow">Il nostro supporto</span>
+      <h2>Non parti da solo</h2>
+    </div>
+    <div class="help-grid">
+      <div class="help-card">
+        <h3>🧭 Guidato dentro l'app</h3>
+        <p>Un assistente ti segue passo passo e risponde alle tue domande, quando ti servono, direttamente mentre lavori.</p>
       </div>
-
-      <div class="step">
-        <div class="step-num">2</div>
-        <div>
-          <h3>Il tuo locale</h3>
-          <p>In <b>Configurazione</b> controlla le sedi e aggiungi logo, colori, orari e contatti.</p>
-        </div>
+      <div class="help-card">
+        <h3>🤝 Onboarding fatto per te</h3>
+        <p>Preferisci partire senza pensieri? Ci mandi i tuoi materiali e ti consegniamo il locale <strong>pronto all'uso</strong>, con i margini già visibili.</p>
       </div>
-
-      <div class="step">
-        <div class="step-num">3</div>
-        <div>
-          <h3>Carica le fatture dei fornitori</h3>
-          <p>In <b>Acquisti</b> carica i file XML. Assegni la categoria a ogni prodotto e premi "Carica in magazzino".</p>
-          <span class="why">Il passo più importante: così Ristoflow sa quanto ti costano gli ingredienti.</span>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">4</div>
-        <div>
-          <h3>Sistema il menù</h3>
-          <p>Inserisci le categorie (Antipasti, Primi, Vini, Bevande…) e i piatti con il prezzo.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">5</div>
-        <div>
-          <h3>📷 Inserisci le ricette — con la foto</h3>
-          <p>Apri <b>Crea ricetta</b> e usa "Compila ricetta da foto": fotografi la ricetta (anche scritta a mano) e Tony compila ingredienti e procedimento. Poi colleghi ogni ingrediente al magazzino.</p>
-          <span class="why">Parti dai 15-20 piatti più venduti: bastano per vedere subito i numeri.</span>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">6</div>
-        <div>
-          <h3>Dipendenti e organizzazione</h3>
-          <p>Inserisci il personale (nome, ruolo, paga, sede), assegna i ruoli e — se vuoi — fai generare a Tony i mansionari. Attiva le presenze/timbrature con GPS per il costo del lavoro reale.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">7</div>
-        <div>
-          <h3>Collega la cassa</h3>
-          <p>Collega il tuo sistema di cassa (es. iPratico) per far entrare gli incassi del giorno.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">8</div>
-        <div>
-          <h3>🌐 Le tue pagine pubbliche</h3>
-          <p>Crea il <b>sito web</b> del locale, il <b>menù digitale QR</b> (che i clienti aprono dal tavolo) e le <b>prenotazioni online</b> — tutto pubblicato con un clic.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">9</div>
-        <div>
-          <h3>🎁 Fidelizza e promuovi</h3>
-          <p>Attiva la <b>fidelity</b> a punti, crea <b>promo e coupon</b> (anche via QR e WhatsApp) e lascia che il <b>chatbot WhatsApp</b> risponda ai clienti e confermi le prenotazioni.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">🎯</div>
-        <div>
-          <h3>Guarda i tuoi numeri</h3>
-          <p>Nella <b>Home</b> vedrai incasso, coperti, food cost e margine in tempo reale, piatto per piatto. Per la prima volta saprai quanto guadagni davvero su ogni piatto — e dove stai perdendo.</p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -191,8 +106,8 @@
 <!-- CTA -->
 <section class="section cta-band">
   <div class="container" style="text-align:center; max-width:720px;">
-    <h2>Vuoi partire senza pensieri?</h2>
-    <p style="margin:12px 0 24px;">Facciamo l'onboarding <strong>insieme a te</strong>: ci mandi identità, ricette, menù e fatture e ti consegniamo il locale pronto all'uso, con i margini già visibili.</p>
+    <h2>Pronto a partire?</h2>
+    <p style="margin:12px 0 24px;">Scopri quanto guadagni davvero su ogni piatto. Ti aiutiamo noi a metterti in moto.</p>
     <a href="mailto:info@ristoflow-ai.com" class="btn btn-white btn-lg">Richiedi l'onboarding assistito</a>
   </div>
 </section>
