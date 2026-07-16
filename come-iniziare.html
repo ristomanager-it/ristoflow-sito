@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Come iniziare — Ristoflow.AI</title>
-  <meta name="description" content="Iniziare è semplice e non sei mai solo. In pochi giorni il tuo locale è operativo e vedi i margini reali. Ti guidiamo passo passo, o lo facciamo per te.">
+  <meta name="description" content="Iniziare è semplice e non sei mai solo. In pochi giorni il tuo locale è operativo e vedi i margini reali di ogni piatto. Ti guidiamo passo passo, o lo facciamo per te.">
   <link rel="icon" href="img/logo.png">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -13,13 +13,30 @@
     .phase .n { width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:14px; }
     .phase h3 { margin:0 0 8px; font-size:1.1rem; }
     .phase p { margin:0; font-size:0.95rem; color:#475569; }
+
+    .timeline { max-width:760px; margin:36px auto 0; position:relative; padding-left:34px; }
+    .timeline::before { content:''; position:absolute; left:9px; top:6px; bottom:6px; width:2px; background:linear-gradient(180deg,var(--primary),var(--accent)); }
+    .tl-item { position:relative; padding-bottom:30px; }
+    .tl-item:last-child { padding-bottom:0; }
+    .tl-item::before { content:''; position:absolute; left:-34px; top:4px; width:14px;height:14px;border-radius:50%;background:var(--primary);border:2px solid #fff;box-shadow:0 0 0 3px var(--primary-light,#e0f2fe); }
+    .tl-when { font-size:0.8rem;font-weight:800;color:var(--primary);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px; }
+    .tl-item h3 { margin:0 0 4px; font-size:1.05rem; }
+    .tl-item p { margin:0; font-size:0.93rem; color:#475569; }
+
+    .get-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:28px; }
+    .get { display:flex; gap:12px; align-items:flex-start; background:#fff; border:1px solid #eef1f4; border-radius:14px; padding:20px; }
+    .get .ic { font-size:1.5rem; line-height:1; }
+    .get h3 { margin:0 0 4px; font-size:1rem; }
+    .get p { margin:0; font-size:0.9rem; color:#475569; }
+
     .help-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px; }
     .help-card { background:#fff; border:1px solid #eef1f4; border-radius:16px; padding:26px; }
     .help-card h3 { margin:0 0 8px; font-size:1.1rem; }
     .help-card p { margin:0; font-size:0.95rem; color:#475569; }
+
     .cta-band { background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; }
     .cta-band h2 { color:#fff; } .cta-band p { color:rgba(255,255,255,0.9); }
-    @media (max-width:760px){ .phase-grid,.help-grid{ grid-template-columns:1fr; } }
+    @media (max-width:760px){ .phase-grid,.help-grid,.get-grid{ grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -71,7 +88,7 @@
       </div>
       <div class="phase">
         <div class="n">2</div>
-        <h3>Porti dentro i tuoi dati</h3>
+        <h3>Porti dentro il tuo mondo</h3>
         <p>Fornitori, menù, piatti e team. Li sistemiamo insieme, con calma e nell'ordine giusto.</p>
       </div>
       <div class="phase">
@@ -79,6 +96,55 @@
         <h3>Vedi i tuoi numeri</h3>
         <p>Incassi, coperti e margine in tempo reale, piatto per piatto. Sai finalmente dove guadagni.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE OPERATIVITA -->
+<section class="section" style="background:#fafbfc;">
+  <div class="container">
+    <div class="section-header" style="text-align:center;">
+      <span class="section-eyebrow">Tempi</span>
+      <h2>In quanto tempo sei operativo</h2>
+      <p>Un percorso rapido e senza stress: dalla prima accensione ai numeri che decidono per te.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-when">Giorno 1</div>
+        <h3>Il tuo locale prende forma</h3>
+        <p>Accedi, dai al sistema la tua identità e le tue sedi. Sei già dentro e riconosci il tuo locale.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Nei primi giorni</div>
+        <h3>Entra il tuo mondo</h3>
+        <p>Fornitori, menù, piatti e team prendono posto. Il locale diventa operativo: tutto in un unico posto, niente più app che non si parlano.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">Prima settimana</div>
+        <h3>I numeri prendono vita</h3>
+        <p>Incassi, coperti e i primi <strong>margini reali</strong> per piatto. La prima volta che vedi davvero dove guadagni — e dove no.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-when">A regime</div>
+        <h3>Decidi sui dati, non a sensazione</h3>
+        <p>Ogni giorno più chiaro: prezzi, menù, sprechi e turni li governi con i numeri alla mano.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COSA AVRAI -->
+<section class="section">
+  <div class="container" style="max-width:900px;">
+    <div class="section-header" style="text-align:center;">
+      <span class="section-eyebrow">Il risultato</span>
+      <h2>Cosa avrai in mano</h2>
+    </div>
+    <div class="get-grid">
+      <div class="get"><div class="ic">📊</div><div><h3>Il margine di ogni piatto</h3><p>Sai quanto guadagni davvero, non a occhio.</p></div></div>
+      <div class="get"><div class="ic">🗂️</div><div><h3>Tutto in un unico posto</h3><p>Cucina, sala, magazzino, conti: niente più 5 app diverse.</p></div></div>
+      <div class="get"><div class="ic">👥</div><div><h3>Team e turni sotto controllo</h3><p>Presenze, ruoli e costo del lavoro reale.</p></div></div>
+      <div class="get"><div class="ic">🌐</div><div><h3>Presenza online pronta</h3><p>Sito, menù digitale e prenotazioni per i tuoi clienti.</p></div></div>
     </div>
   </div>
 </section>
@@ -93,7 +159,7 @@
     <div class="help-grid">
       <div class="help-card">
         <h3>🧭 Guidato dentro l'app</h3>
-        <p>Un assistente ti segue passo passo e risponde alle tue domande, quando ti servono, direttamente mentre lavori.</p>
+        <p>Un assistente ti segue passo passo e risponde alle tue domande, quando ti servono, mentre lavori.</p>
       </div>
       <div class="help-card">
         <h3>🤝 Onboarding fatto per te</h3>
