@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Come iniziare — Ristoflow.AI</title>
+  <meta name="description" content="Dalla creazione della password ai margini reali del tuo ristorante: la guida passo-passo per rendere operativo Ristoflow. Con Tony che fa il lavoro pesante.">
+  <link rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .prep { background: var(--primary-light, #eef6fb); border-radius: 16px; padding: 28px; margin-top: 24px; }
+    .prep ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; }
+    .prep li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.95rem; }
+    .prep li b { color: var(--primary); }
+    .steps { margin-top: 8px; }
+    .step {
+      position: relative; display: grid; grid-template-columns: 56px 1fr; gap: 20px;
+      padding: 26px 0; border-bottom: 1px solid #eef1f4;
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff; font-weight: 800; font-size: 1.15rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step h3 { margin: 2px 0 8px; font-size: 1.15rem; }
+    .step p { font-size: 0.95rem; margin: 0 0 8px; color: #475569; }
+    .step .why {
+      display: inline-block; background: #fff7ed; color: #9a3412;
+      border: 1px solid #fed7aa; border-radius: 8px; padding: 6px 10px;
+      font-size: 0.85rem; font-weight: 600;
+    }
+    .step .first { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
+    .cta-band { background: linear-gradient(135deg, var(--primary), var(--accent)); color:#fff; }
+    .cta-band h2 { color:#fff; }
+    .cta-band p { color: rgba(255,255,255,0.9); }
+    @media (max-width: 640px){ .step{ grid-template-columns: 44px 1fr; gap:14px; } .step-num{ width:40px;height:40px;font-size:1rem; } }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo.png" alt="Ristoflow.AI">Ristoflow.AI
+      </a>
+      <ul class="nav-links">
+        <li><a href="funzionalita.html">Funzionalità</a></li>
+        <li><a href="prezzi.html">Prezzi</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="come-iniziare.html">Come iniziare</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="mailto:info@ristoflow-ai.com" class="btn btn-outline">Contattaci</a>
+        <a href="https://app.ristoflow-ai.com" class="btn btn-primary" target="_blank">Apri l'app →</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="section-eyebrow">Come iniziare</span>
+    <h1>Dalla password ai margini reali del tuo locale</h1>
+    <p>Non serve essere esperti di computer: Ristoflow e <strong>Tony</strong>, il tuo assistente, fanno il lavoro pesante. Segui i passi nell'ordine e sei operativo — in genere in 1-2 giorni.</p>
+  </div>
+</div>
+
+<!-- PREPARA -->
+<section class="section">
+  <div class="container" style="max-width:860px;">
+    <span class="section-eyebrow">Prima di iniziare</span>
+    <h2>Cosa preparare (15 minuti)</h2>
+    <p>Tieni a portata di mano queste cose: ti serviranno lungo il percorso.</p>
+    <div class="prep">
+      <ul>
+        <li>🎯 <span><b>La tua identità:</b> perché esiste il tuo locale, cosa lo rende diverso, i tuoi valori.</span></li>
+        <li>🎨 <span><b>Logo, colori e foto belle</b> del locale e dei piatti.</span></li>
+        <li>🕒 <span><b>Orari, contatti e social.</b></span></li>
+        <li>🧾 <span><b>Fatture dei fornitori</b> in formato elettronico (XML), ultimi 2-3 mesi.</span></li>
+        <li>📋 <span><b>Il menù</b> con i prezzi (foto o PDF).</span></li>
+        <li>📷 <span><b>Le ricette</b> dei piatti più venduti — anche scritte a mano.</span></li>
+        <li>👥 <span><b>Elenco dipendenti</b> (nome, ruolo, paga, sede).</span></li>
+        <li>💳 <span><b>Il sistema di cassa</b> che usi (es. iPratico).</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PASSI -->
+<section class="section" style="background:#fafbfc;">
+  <div class="container" style="max-width:860px;">
+    <span class="section-eyebrow">Il percorso</span>
+    <h2>Passo per passo</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>⭐ Identità — la prima cosa da fare</h3>
+          <p>In <b>Persone e Organizzazione → Identità</b> racconta il tuo perché, i valori e cosa ti rende unico.</p>
+          <span class="why first">Da qui Tony e tutte le pagine pubbliche prendono la voce del tuo locale.</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Il tuo locale</h3>
+          <p>In <b>Configurazione</b> controlla le sedi e aggiungi logo, colori, orari e contatti.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Carica le fatture dei fornitori</h3>
+          <p>In <b>Acquisti</b> carica i file XML. Assegni la categoria a ogni prodotto e premi "Carica in magazzino".</p>
+          <span class="why">Il passo più importante: così Ristoflow sa quanto ti costano gli ingredienti.</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Sistema il menù</h3>
+          <p>Inserisci le categorie (Antipasti, Primi, Vini, Bevande…) e i piatti con il prezzo.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div>
+          <h3>📷 Inserisci le ricette — con la foto</h3>
+          <p>Apri <b>Crea ricetta</b> e usa "Compila ricetta da foto": fotografi la ricetta (anche scritta a mano) e Tony compila ingredienti e procedimento. Poi colleghi ogni ingrediente al magazzino.</p>
+          <span class="why">Parti dai 15-20 piatti più venduti: bastano per vedere subito i numeri.</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div>
+          <h3>Dipendenti e organizzazione</h3>
+          <p>Inserisci il personale (nome, ruolo, paga, sede), assegna i ruoli e — se vuoi — fai generare a Tony i mansionari. Attiva le presenze/timbrature con GPS per il costo del lavoro reale.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">7</div>
+        <div>
+          <h3>Collega la cassa</h3>
+          <p>Collega il tuo sistema di cassa (es. iPratico) per far entrare gli incassi del giorno.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">8</div>
+        <div>
+          <h3>🌐 Le tue pagine pubbliche</h3>
+          <p>Crea il <b>sito web</b> del locale, il <b>menù digitale QR</b> (che i clienti aprono dal tavolo) e le <b>prenotazioni online</b> — tutto pubblicato con un clic.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">9</div>
+        <div>
+          <h3>🎁 Fidelizza e promuovi</h3>
+          <p>Attiva la <b>fidelity</b> a punti, crea <b>promo e coupon</b> (anche via QR e WhatsApp) e lascia che il <b>chatbot WhatsApp</b> risponda ai clienti e confermi le prenotazioni.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">🎯</div>
+        <div>
+          <h3>Guarda i tuoi numeri</h3>
+          <p>Nella <b>Home</b> vedrai incasso, coperti, food cost e margine in tempo reale, piatto per piatto. Per la prima volta saprai quanto guadagni davvero su ogni piatto — e dove stai perdendo.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-band">
+  <div class="container" style="text-align:center; max-width:720px;">
+    <h2>Vuoi partire senza pensieri?</h2>
+    <p style="margin:12px 0 24px;">Facciamo l'onboarding <strong>insieme a te</strong>: ci mandi identità, ricette, menù e fatture e ti consegniamo il locale pronto all'uso, con i margini già visibili.</p>
+    <a href="mailto:info@ristoflow-ai.com" class="btn btn-white btn-lg">Richiedi l'onboarding assistito</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="img/logo.png" alt="Ristoflow.AI">Ristoflow.AI</div>
+        <p class="footer-desc">Il sistema operativo per la ristorazione italiana.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Prodotto</h4>
+        <ul>
+          <li><a href="funzionalita.html">Funzionalità</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="come-iniziare.html">Come iniziare</a></li>
+          <li><a href="https://app.ristoflow-ai.com">Accedi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Azienda</h4>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="mailto:info@ristoflow-ai.com">Contatti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legale</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Termini di servizio</a></li>
+          <li><a href="cookie.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ristoflow.AI — Tutti i diritti riservati</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Termini</a> · <a href="cookie.html">Cookie</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
