@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serata Ristoflow — mercoledì 23 settembre, Campo Antico</title>
+  <meta name="description" content="Una sera, a cena, tra ristoratori. Ti mostro il gestionale che ho scritto per il mio locale. Posti limitati, cena offerta.">
+  <meta property="og:title" content="Serata Ristoflow — 23 settembre, Campo Antico">
+  <meta property="og:description" content="Nato in cucina. Non in laboratorio. Una sera tra ristoratori, cena offerta.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="../img/logo.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body { background:#fafbfc; }
+    .lp-wrap { max-width:680px; margin:0 auto; padding:28px 20px 60px; }
+    .lp-logo { display:flex; align-items:center; gap:10px; margin-bottom:30px; }
+    .lp-logo img { height:36px; }
+    .lp-logo span { font-weight:800; font-size:1.1rem; color:var(--text); }
+    .kicker { display:inline-block; background:#fff7ed; border:1.5px solid #fed7aa; color:#c2410c;
+              font-weight:700; font-size:.78rem; letter-spacing:.04em; text-transform:uppercase;
+              padding:6px 12px; border-radius:100px; margin-bottom:16px; }
+    .lp-hero h1 { font-size:clamp(1.8rem,6vw,2.6rem); line-height:1.12; margin-bottom:14px; }
+    .lp-hero .sub { font-size:1.08rem; color:var(--text-light); margin-bottom:22px; line-height:1.55; }
+    .quando { background:#fff; border:1.5px solid var(--border); border-radius:14px; padding:18px 20px; margin:26px 0; }
+    .quando div { display:flex; gap:10px; padding:5px 0; font-size:.97rem; }
+    .quando .k { flex:0 0 26px; }
+    .blocco { margin:36px 0; }
+    .blocco h2 { font-size:1.25rem; margin-bottom:14px; }
+    .voce { display:flex; gap:13px; margin-bottom:14px; align-items:flex-start; }
+    .voce .n { flex:0 0 30px; height:30px; border-radius:50%; background:var(--primary); color:#fff;
+               font-weight:700; font-size:.9rem; display:flex; align-items:center; justify-content:center; }
+    .voce p { margin:0; font-size:.97rem; line-height:1.5; }
+    .voce p b { display:block; color:var(--text); }
+    .avviso { background:#f0fdf4; border:1.5px solid #bbf7d0; color:#15803d;
+              border-radius:12px; padding:14px 18px; font-weight:600; margin:26px 0; font-size:.95rem; }
+    form { background:#fff; border:1.5px solid var(--border); border-radius:16px; padding:24px 22px; }
+    form h2 { font-size:1.2rem; margin-bottom:6px; }
+    form .intro { font-size:.9rem; color:var(--text-light); margin-bottom:20px; }
+    label { display:block; font-size:.85rem; font-weight:700; margin:14px 0 5px; color:var(--text); }
+    input, select, textarea { width:100%; padding:11px 13px; border:1.5px solid var(--border);
+      border-radius:10px; font-size:1rem; font-family:inherit; background:#fff; color:var(--text); }
+    input:focus, select:focus, textarea:focus { outline:none; border-color:var(--primary); }
+    .due { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    @media (max-width:520px) { .due { grid-template-columns:1fr; } }
+    button { width:100%; margin-top:22px; background:var(--primary); color:#fff; border:none;
+      font-weight:700; font-size:1.05rem; padding:15px; border-radius:12px; cursor:pointer;
+      box-shadow:0 8px 24px rgba(14,90,122,.25); }
+    button:disabled { opacity:.6; cursor:default; }
+    .privacy { font-size:.78rem; color:var(--text-light); margin-top:12px; text-align:center; line-height:1.5; }
+    .ok { display:none; text-align:center; padding:20px 4px; }
+    .ok h2 { color:var(--primary); margin-bottom:10px; }
+    .ok p { font-size:1rem; color:var(--text-light); line-height:1.6; }
+    .errore { display:none; background:#fef2f2; border:1.5px solid #fecaca; color:#b91c1c;
+      border-radius:10px; padding:12px; font-size:.9rem; margin-top:14px; }
+    .lp-footer { text-align:center; margin-top:44px; font-size:.78rem; color:var(--text-light); }
+    .lp-footer a { color:var(--text-light); }
+  </style>
+</head>
+<body>
+  <div class="lp-wrap">
+    <div class="lp-logo"><img src="../img/logo.png" alt="Ristoflow"><span>Ristoflow.AI</span></div>
+
+    <div class="lp-hero">
+      <span class="kicker">Su invito · posti limitati</span>
+      <h1>Una sera tra ristoratori.<br>A cena, non in aula.</h1>
+      <p class="sub">Mi chiamo Antonio Carullo, gestisco Campo Antico Ricevimenti. Mi sono costruito il gestionale
+      che cercavo e non trovavo, e mercoledì 23 settembre lo faccio vedere dal vivo, sui numeri veri del mio locale.
+      Niente proiezioni di marketing: apro l'app e ve la mostro mentre lavora.</p>
+    </div>
+
+    <div class="quando">
+      <div><span class="k">📅</span><span><b>Mercoledì 23 settembre 2026</b>, dalle 19:30</span></div>
+      <div><span class="k">📍</span><span>Campo Antico Ricevimenti</span></div>
+      <div><span class="k">🍽️</span><span>Cena offerta — nessun costo di partecipazione</span></div>
+      <div><span class="k">⏱️</span><span>Si finisce entro le 23:30</span></div>
+    </div>
+
+    <div class="blocco">
+      <h2>Cosa vedrete, in concreto</h2>
+      <div class="voce"><span class="n">1</span><p><b>Il costo vero di un piatto</b>Aggiornato da solo a ogni fattura che arriva dai fornitori.</p></div>
+      <div class="voce"><span class="n">2</span><p><b>Una ricetta dettata a voce</b>Quaranta secondi, senza toccare un computer.</p></div>
+      <div class="voce"><span class="n">3</span><p><b>Un piatto inventato con gli avanzi</b>Gli dite cosa vi è rimasto in cella, vi propone come venderlo.</p></div>
+      <div class="voce"><span class="n">4</span><p><b>Personale e turni</b>Timbrature dal telefono e costo del lavoro per servizio.</p></div>
+      <div class="voce"><span class="n">5</span><p><b>Il vostro sito e le prenotazioni</b>Con i messaggi che partono da soli al cliente.</p></div>
+      <div class="voce"><span class="n">6</span><p><b>Marketing sui vostri numeri</b>Promozioni sul piatto che ha davvero margine, non su quello che viene bene in foto.</p></div>
+    </div>
+
+    <div class="avviso">Venite con chi decide insieme a voi: socio, moglie, marito, fratello. Si prenotano due coperti, non uno.</div>
+
+    <div class="blocco">
+      <h2>Per chi è questa serata</h2>
+      <p style="font-size:.97rem;color:var(--text-light);line-height:1.6;margin:0;">
+      Ristoranti, pizzerie, trattorie, bar e attività di catering. Anche fornitori del settore, perché
+      metà di quello che vedremo parte proprio dalle loro fatture. Non è una serata per addetti
+      all'informatica: se sapete usare WhatsApp, avete tutte le competenze necessarie.</p>
+    </div>
+
+    <form id="form-iscrizione" novalidate>
+      <h2>Prenota il tuo posto</h2>
+      <p class="intro">Vi ricontatto io per confermare. I posti a sedere sono limitati dalla capienza della sala.</p>
+
+      <label for="nome">Nome e cognome *</label>
+      <input id="nome" name="nome" type="text" autocomplete="name" required>
+
+      <label for="locale">Nome del locale</label>
+      <input id="locale" name="locale" type="text">
+
+      <div class="due">
+        <div>
+          <label for="tipo">Che attività avete *</label>
+          <select id="tipo" name="tipo_attivita" required>
+            <option value="">Scegli…</option>
+            <option>ristorante</option>
+            <option>pizzeria</option>
+            <option>trattoria</option>
+            <option>bar</option>
+            <option>catering</option>
+            <option>hotel</option>
+            <option>fornitore</option>
+            <option>altro</option>
+          </select>
+        </div>
+        <div>
+          <label for="citta">Città</label>
+          <input id="citta" name="citta" type="text">
+        </div>
+      </div>
+
+      <div class="due">
+        <div>
+          <label for="telefono">Telefono (WhatsApp) *</label>
+          <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required>
+        </div>
+        <div>
+          <label for="persone">In quanti venite *</label>
+          <select id="persone" name="persone" required>
+            <option value="1">1 persona</option>
+            <option value="2" selected>2 persone</option>
+            <option value="3">3 persone</option>
+            <option value="4">4 persone</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email">
+
+      <label for="note">Qualcosa che vorreste vedere quella sera</label>
+      <textarea id="note" name="note" rows="3" placeholder="Es: il food cost, i turni del personale, le prenotazioni…"></textarea>
+
+      <button type="submit" id="invia">Prenota il posto</button>
+      <div class="errore" id="errore"></div>
+      <p class="privacy">Usiamo i vostri dati solo per gestire la serata: conferma, promemoria e nient'altro.
+      Nessuna newsletter, nessuna cessione a terzi.</p>
+    </form>
+
+    <div class="ok" id="ok">
+      <h2>Ci siamo 🎉</h2>
+      <p>Il posto è segnato. Vi arriva un messaggio di conferma su WhatsApp e un promemoria
+      nei giorni prima della serata.<br><br>Se nel frattempo cambiano i programmi, basta rispondere a quel messaggio.<br><br>
+      <b>Mercoledì 23 settembre, dalle 19:30 — Campo Antico Ricevimenti.</b></p>
+    </div>
+
+    <div class="lp-footer">
+      Ristoflow.AI — <a href="https://ristoflow-ai.com">ristoflow-ai.com</a><br>
+      Nato in cucina. Non in laboratorio.
+    </div>
+  </div>
+
+<script>
+(function () {
+  var URL_API = "https://cuhcscpvhypoaplcmtjk.supabase.co/rest/v1/evento_iscrizioni";
+  var KEY = "sb_publishable_WotaBvSScN1GwFw_rVWbzA_2OEcRJy-";
+
+  var form = document.getElementById("form-iscrizione");
+  var btn = document.getElementById("invia");
+  var box = document.getElementById("errore");
+
+  function errore(msg) { box.textContent = msg; box.style.display = "block"; }
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    box.style.display = "none";
+
+    var d = {
+      nome: form.nome.value.trim(),
+      locale: form.locale.value.trim() || null,
+      tipo_attivita: form.tipo_attivita.value || null,
+      citta: form.citta.value.trim() || null,
+      telefono: form.telefono.value.trim(),
+      email: form.email.value.trim() || null,
+      persone: parseInt(form.persone.value, 10) || 1,
+      note: form.note.value.trim() || null,
+      fonte: "landing"
+    };
+
+    if (!d.nome) return errore("Manca il nome.");
+    if (!d.tipo_attivita) return errore("Dicci che tipo di attività avete.");
+    if (d.telefono.replace(/\D/g, "").length < 8) return errore("Il numero di telefono non sembra completo.");
+
+    btn.disabled = true;
+    btn.textContent = "Un attimo…";
+
+    try {
+      var r = await fetch(URL_API, {
+        method: "POST",
+        headers: {
+          "apikey": KEY,
+          "Authorization": "Bearer " + KEY,
+          "Content-Type": "application/json",
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify(d)
+      });
+      if (!r.ok) throw new Error(await r.text());
+      form.style.display = "none";
+      document.getElementById("ok").style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      console.error(err);
+      btn.disabled = false;
+      btn.textContent = "Prenota il posto";
+      errore("Non è andata. Riprova, oppure scrivici su WhatsApp al 333 948 7644.");
+    }
+  });
+})();
+</script>
+</body>
+</html>
