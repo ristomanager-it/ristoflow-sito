@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Funzionalità — Ristoflow.AI</title>
-  <meta name="description" content="Tutti i moduli di Ristoflow.AI: comande, food cost, magazzino, HR, WhatsApp, Tony AI e molto altro.">
+  <meta name="description" content="Tutti i moduli di Ristoflow.AI: camera che riconosce piatti e ingredienti, centralino, calendario social, gift card, fatture elettroniche, comande, food cost, magazzino, HR, WhatsApp e Tony AI.">
   <link rel="icon" href="img/logo.png">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -24,6 +24,14 @@
       margin-bottom: 16px;
     }
     .feature-detail h2 { margin-bottom: 16px; }
+    .feature-claim {
+      font-size: 1.18rem;
+      line-height: 1.4;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    @media (max-width: 768px) { .feature-claim { font-size: 1.05rem; } }
     .feature-detail p { margin-bottom: 16px; }
     .feature-list { list-style: none; margin-top: 16px; }
     .feature-list li {
@@ -125,11 +133,175 @@
 <section class="section">
   <div class="container">
 
+
+    <!-- CAMERA / VISIONE -->
+    <div class="feature-detail">
+      <div>
+        <div class="feature-detail-icon">📸</div>
+        <h2>Fotografa e Ristoflow capisce</h2>
+        <p class="feature-claim">Una foto al posto di mezz&#39;ora di lavoro.</p>
+        <p>Non devi dire cosa stai fotografando: lo riconosce da solo. Una cassa di pomodori e un piatto impiattato sono due domande diverse, e ottengono due risposte diverse.</p>
+        <ul class="feature-list">
+          <li>Ti dice quanto ne hai e cosa sta per andare</li>
+          <li>Propone ricette fattibili davvero con quello che vede</li>
+          <li>Riusa i piatti che hai già, invece di inventarne</li>
+          <li>Piatto finito: scheda tecnica e food cost</li>
+          <li>Se la ricetta non esiste, la crea</li>
+          <li>Inquadri il codice a barre e il magazzino si carica</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">📸 Foto — cassa di pomodori</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>Riconosciuto: pomodori, circa 6 kg</span><span class="mock-badge mock-badge-yellow">Da usare</span></div>
+          <div class="mock-row"><span>Pasta al pomodoro fresco</span><span class="mock-badge mock-badge-green">Già a menu</span></div>
+          <div class="mock-row"><span>Pomodori confit</span><span class="mock-badge mock-badge-blue">Nuova</span></div>
+          <div class="mock-row"><span>Bruschetta del giorno</span><span class="mock-badge mock-badge-blue">Nuova</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTRALINO -->
+    <div class="feature-detail reverse">
+      <div>
+        <div class="feature-detail-icon">☎️</div>
+        <h2>Centralino</h2>
+        <p class="feature-claim">Il telefono non squilla mai a vuoto, nemmeno il sabato sera.</p>
+        <p>Il telefono del locale squilla mentre siete in servizio. Ristoflow risponde al posto vostro, capisce cosa serve e manda il link giusto su WhatsApp.</p>
+        <ul class="feature-list">
+          <li>Risposta automatica con il vostro messaggio di benvenuto</li>
+          <li>Informativa privacy letta in chiamata, con rinvio al sito</li>
+          <li>Menu a tasti che decidete voi</li>
+          <li>Chi chiama da cellulare riceve subito il link su WhatsApp</li>
+          <li>Chi chiama da fisso detta il proprio numero</li>
+          <li>Ogni chiamata diventa un contatto in rubrica</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">☎️ Chiamate di oggi</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>21:14 — prenotazione tavolo</span><span class="mock-badge mock-badge-green">Link inviato</span></div>
+          <div class="mock-row"><span>20:47 — compleanno</span><span class="mock-badge mock-badge-green">Link inviato</span></div>
+          <div class="mock-row"><span>20:02 — parla con noi</span><span class="mock-badge mock-badge-blue">Inoltrata</span></div>
+          <div class="mock-row"><span>19:38 — prenotazione tavolo</span><span class="mock-badge mock-badge-green">Link inviato</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALENDARIO SOCIAL -->
+    <div class="feature-detail">
+      <div>
+        <div class="feature-detail-icon">📅</div>
+        <h2>Calendario social</h2>
+        <p class="feature-claim">Il mese è già pieno prima che cominci.</p>
+        <p>Il mese si riempie in anticipo. Voi decidete cosa raccontare, Tony scrive, e i post escono da soli su Facebook e Instagram.</p>
+        <ul class="feature-list">
+          <li>Calendario editoriale con un post per giorno</li>
+          <li>Gli lasci due righe sul giorno e scrive lui</li>
+          <li>Usa le vostre foto, mai quelle di internet</li>
+          <li>Storie Instagram oltre ai post</li>
+          <li>Menzioni raccolte in automatico</li>
+          <li>Approvazione prima della pubblicazione</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">📅 Calendario — questa settimana</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>Lun — Il pesce del giorno</span><span class="mock-badge mock-badge-green">Pubblicato</span></div>
+          <div class="mock-row"><span>Mer — Perché lo facciamo così</span><span class="mock-badge mock-badge-yellow">Da approvare</span></div>
+          <div class="mock-row"><span>Ven — Menu del fine settimana</span><span class="mock-badge mock-badge-blue">Programmato</span></div>
+          <div class="mock-row"><span>Sab — Storia dal servizio</span><span class="mock-badge mock-badge-blue">Programmato</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIFT CARD -->
+    <div class="feature-detail reverse">
+      <div>
+        <div class="feature-detail-icon">🎁</div>
+        <h2>Gift card</h2>
+        <p class="feature-claim">Incassi oggi, servi quando torna.</p>
+        <p>Un regalo che porta gente in sala. Il cliente compone il pacchetto, sceglie l'occasione e riceve il buono pronto da regalare.</p>
+        <ul class="feature-list">
+          <li>Pacchetti componibili con i vostri piatti</li>
+          <li>Otto occasioni, dallo compleanno all'anniversario</li>
+          <li>Sfondi personalizzati con la vostra grafica</li>
+          <li>QR code per il riscatto in sala</li>
+          <li>Pagina pubblica di riscatto</li>
+          <li>Incasso subito, servizio quando torna</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">🎁 Buoni regalo</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>Cena per due — anniversario</span><span class="mock-badge mock-badge-green">Riscattato</span></div>
+          <div class="mock-row"><span>Degustazione pesce — compleanno</span><span class="mock-badge mock-badge-blue">Attivo</span></div>
+          <div class="mock-row"><span>Pranzo in famiglia — Natale</span><span class="mock-badge mock-badge-blue">Attivo</span></div>
+          <div class="mock-row"><span>Cena romantica — laurea</span><span class="mock-badge mock-badge-yellow">In scadenza</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FATTURE ELETTRONICHE -->
+    <div class="feature-detail">
+      <div>
+        <div class="feature-detail-icon">🧾</div>
+        <h2>Fatture elettroniche</h2>
+        <p class="feature-claim">Guardi solo le righe che non tornano.</p>
+        <p>La fattura del fornitore arriva, Ristoflow la legge e la abbina all'ordine che avete fatto. Voi controllate solo le righe che non tornano.</p>
+        <ul class="feature-list">
+          <li>La fattura si legge da sola, appena arriva</li>
+          <li>Ogni riga confrontata con quello che avevi ordinato</li>
+          <li>Prezzi confrontati con l'ultimo acquisto</li>
+          <li>Carico a magazzino alla conferma</li>
+          <li>Classificazione contabile automatica</li>
+          <li>Fascicolo IVA per aliquota</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">🧾 Fattura — fornitore ittico</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>Gamberi rossi 4 kg</span><span class="mock-badge mock-badge-green">Abbinata</span></div>
+          <div class="mock-row"><span>Vongole veraci 6 kg</span><span class="mock-badge mock-badge-green">Abbinata</span></div>
+          <div class="mock-row"><span>Calamari 3 kg</span><span class="mock-badge mock-badge-yellow">Prezzo salito</span></div>
+          <div class="mock-row"><span>Cassette a rendere</span><span class="mock-badge mock-badge-blue">Da verificare</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIBRERIA FOTO -->
+    <div class="feature-detail reverse">
+      <div>
+        <div class="feature-detail-icon">🖼️</div>
+        <h2>Foto e video del locale</h2>
+        <p class="feature-claim">Le foto smettono di stare sparse su tre telefoni.</p>
+        <p>Le foto che fate col telefono e quelle del fotografo finiscono nello stesso posto, pronte da usare per post, menu e sito.</p>
+        <ul class="feature-list">
+          <li>Quello che carichi su Drive arriva qui da solo</li>
+          <li>Collegamento a Canva per le grafiche</li>
+          <li>Ogni foto catalogata senza che tu faccia niente</li>
+          <li>Le foto migliori vengono fuori da sole</li>
+          <li>Cerchi &quot;polpo&quot; e trovi il polpo</li>
+          <li>Le stesse foto usate da Tony per i post</li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="feature-mockup-header">🖼️ Libreria — ultime importate</div>
+        <div class="feature-mockup-body">
+          <div class="mock-row"><span>Spaghetti alle vongole</span><span class="mock-badge mock-badge-green">Voto 98</span></div>
+          <div class="mock-row"><span>Sala apparecchiata</span><span class="mock-badge mock-badge-green">Voto 94</span></div>
+          <div class="mock-row"><span>Pesce in cassetta</span><span class="mock-badge mock-badge-yellow">Voto 71</span></div>
+          <div class="mock-row"><span>Video — carbonara</span><span class="mock-badge mock-badge-blue">Da descrivere</span></div>
+        </div>
+      </div>
+    </div>
+
     <!-- OPERATIVO -->
     <div class="feature-detail">
       <div>
         <div class="feature-detail-icon">🪑</div>
         <h2>Comande & Cassa</h2>
+        <p class="feature-claim">La sala gira senza carta e senza domande.</p>
         <p>Gestione completa del servizio sala — dai tavoli al pagamento, tutto da smartphone o tablet.</p>
         <ul class="feature-list">
           <li>Mappa tavoli interattiva con stato in tempo reale</li>
@@ -156,6 +328,7 @@
       <div>
         <div class="feature-detail-icon">📊</div>
         <h2>Bilancio & Food Cost</h2>
+        <p class="feature-claim">Sai com&#39;è andato il mese senza aspettare il commercialista.</p>
         <p>Controllo finanziario in tempo reale. Sai sempre dove stai con i numeri, senza aspettare il commercialista.</p>
         <ul class="feature-list">
           <li>P&L live aggiornato in tempo reale</li>
@@ -182,6 +355,7 @@
       <div>
         <div class="feature-detail-icon">📦</div>
         <h2>Magazzino & Acquisti</h2>
+        <p class="feature-claim">Ordini quello che serve, non quello che ti ricordi.</p>
         <p>Giacenze sempre aggiornate, alert automatici sottoscorta e ordini fornitori in un click.</p>
         <ul class="feature-list">
           <li>Giacenze in tempo reale per sede</li>
@@ -208,6 +382,7 @@
       <div>
         <div class="feature-detail-icon">🍲</div>
         <h2>Produzione & Cucina</h2>
+        <p class="feature-claim">Ogni lotto ha un nome, una data e un responsabile.</p>
         <p>La cucina che lavora in anticipo — preparazioni, abbattimenti e conservazione — sotto controllo dal primo all'ultimo passaggio. Ordine in laboratorio, tracciabilità completa, zero sorprese in caso di controllo.</p>
         <ul class="feature-list">
           <li>Ogni preparazione segue i suoi passaggi, sempre nell'ordine giusto</li>
@@ -234,6 +409,7 @@
       <div>
         <div class="feature-detail-icon">👥</div>
         <h2>HR & Personale</h2>
+        <p class="feature-claim">Turni, timbrature e costo del lavoro nello stesso posto.</p>
         <p>Gestione completa del personale — dalle timbrature alle ferie, dal fascicolo dipendente ai documenti.</p>
         <ul class="feature-list">
           <li>Timbrature con validazione GPS geofencing</li>
@@ -260,6 +436,7 @@
       <div>
         <div class="feature-detail-icon">📱</div>
         <h2>WhatsApp Automation</h2>
+        <p class="feature-claim">I clienti ti leggono dove leggono gli amici.</p>
         <p>Trasforma WhatsApp nel tuo canale di acquisizione e fidelizzazione clienti. Automatico, intelligente, sempre attivo.</p>
         <ul class="feature-list">
           <li>Inbox conversazioni con intent detection AI</li>
@@ -286,6 +463,7 @@
       <div>
         <div class="feature-detail-icon">🤖</div>
         <h2>Tony AI — Il tuo consulente</h2>
+        <p class="feature-claim">Un socio che ha letto tutti i tuoi numeri.</p>
         <p>Tony non è un chatbot generico. È un assistente addestrato su 100+ best practice della ristorazione italiana, che conosce i tuoi dati in tempo reale.</p>
         <ul class="feature-list">
           <li>Analisi vendite, food cost e trend in linguaggio naturale</li>
@@ -312,6 +490,7 @@
       <div>
         <div class="feature-detail-icon">🎁</div>
         <h2>Promo & Marketing</h2>
+        <p class="feature-claim">Le promozioni si misurano, non si sperano.</p>
         <p>Acquisisci nuovi clienti, fidelizza quelli esistenti e automatizza il follow-up con catenarie WhatsApp.</p>
         <ul class="feature-list">
           <li>Landing page promo mobile-first con QR code</li>
