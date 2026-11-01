@@ -59,6 +59,41 @@
     .gap-card p { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 12px; }
     .gap-card .solution { font-size: 0.82rem; color: #00c896; font-weight: 600; }
   </style>
+
+<style>
+/* Sezioni per tipologia di locale (novembre 2026) */
+.tl-scelta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:24px}
+.tl-btn{position:relative;display:block;border-radius:16px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 4px 24px rgba(14,90,122,.12);text-decoration:none}
+.tl-btn img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.tl-btn:hover img{transform:scale(1.05)}
+.tl-btn span{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-weight:700;font-size:1rem;line-height:1.2}
+.tl-sez{padding:56px 0;border-top:1px solid #e5e7eb;scroll-margin-top:80px}
+.tl-griglia{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+@media (min-width:860px){.tl-griglia{grid-template-columns:1fr 1fr}.tl-sez:nth-of-type(even) .tl-foto{order:2}}
+.tl-foto img{width:100%;border-radius:20px;display:block;box-shadow:0 8px 48px rgba(14,90,122,.15)}
+.tl-tag{display:inline-block;font-size:.8rem;font-weight:700;padding:5px 12px;border-radius:999px;background:#e8f4f8;color:#0E5A7A}
+.tl-sez h2{margin:12px 0 10px}
+.tl-des{border-left:4px solid #E66101;padding:6px 14px;margin:16px 0;font-weight:600}
+.tl-lista{margin:12px 0 0;padding-left:20px}.tl-lista li{margin:7px 0}
+.tl-azione{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:20px}
+.tl-prezzo{font-family:Sora,sans-serif;font-size:1.7rem;font-weight:800}.tl-prezzo small{font-size:.9rem;font-weight:600;color:#6b7280}
+.tl-prove{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:20px 0}
+.tl-prova{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:18px}
+.tl-prova b{display:block;font-family:Sora,sans-serif;font-size:1.9rem;color:#E66101;line-height:1.1}
+.tl-prova span{color:#6b7280;font-size:.92rem}
+.tl-tab{overflow-x:auto}.tl-tab table{border-collapse:collapse;width:100%;min-width:420px;background:#fff;border-radius:14px;overflow:hidden}
+.tl-tab th,.tl-tab td{padding:10px 12px;border-bottom:1px solid #e5e7eb;text-align:right}.tl-tab th:first-child,.tl-tab td:first-child{text-align:left}
+/* Testata: fascia fotografica sotto il menu, con il titolo d'aggancio scritto sopra */
+.tl-testata{position:relative;margin-top:0;height:min(42vh,380px);overflow:hidden;background:#0a1f2b}
+.tl-testata img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.tl-testata::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,38,57,.05) 0%,rgba(2,38,57,.25) 40%,rgba(2,38,57,.88) 100%)}
+.tl-testo{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 0 28px}
+.tl-testo .hero-badge{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.35);margin-bottom:16px}
+.tl-testo h1{color:#fff;margin:0;max-width:760px;font-size:clamp(1.5rem,3.6vw,2.6rem);line-height:1.15;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.tl-testo h1 span{color:#F1B302}
+.hero{padding-top:44px !important}
+@media (max-width:860px){.tl-testata{height:auto}.tl-testata img{height:auto;aspect-ratio:4/3}.tl-testo{padding-bottom:16px}.tl-testo .hero-badge{margin-bottom:8px;font-size:.75rem;padding:4px 10px}.hero{padding-top:24px !important}}
+</style>
 </head>
 <body>
 
@@ -90,24 +125,20 @@
 </nav>
 
 <!-- HERO -->
+<div class="tl-testata"><picture><source media="(max-width:860px)" srcset="img/hero-cucina-verticale.jpg"><img src="img/hero-cucina.jpg" alt="In cucina alla Trattoria dell’Aquila: si stacca la comanda"></picture><div class="tl-testo"><div class="container"><div class="hero-badge"><span>🍽️</span><span>Nato in cucina. Non in laboratorio.</span></div><h1>Il gestionale che <span>capisce davvero</span> la ristorazione</h1></div></div></div>
 <section class="hero">
   <div class="container">
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-badge">
-          <span>🍽️</span>
-          <span>Nato in cucina. Non in laboratorio.</span>
-        </div>
-        <h1>Il gestionale che <span>capisce davvero</span> la ristorazione</h1>
-        <p>Un ottimo cuoco non sa fare campagne. Un maitre non conosce i numeri. Un direttore non gestisce la cucina. Ristoflow.AI colma tutti questi gap — in un'unica piattaforma semplice come un menu.</p>
+        <p>Un ottimo cuoco non sa fare campagne. Un maitre non conosce i numeri. Un direttore non gestisce la cucina. Ristoflow.AI colma tutti questi gap: cassa e comande, cucina, magazzino, personale e marketing in un'unica piattaforma semplice come un menu.</p>
         <div class="hero-actions">
-          <a href="https://app.ristoflow-ai.com/#/login?register=1" class="btn btn-primary btn-lg" target="_blank">🚀 Provalo gratis 30 giorni →</a>
+          <a href="https://app.ristoflow-ai.com/#/login?register=1" class="btn btn-primary btn-lg" target="_blank">🚀 Provalo gratis 14 giorni →</a>
           <a href="#perche" class="btn btn-accent btn-lg">Scopri perché</a>
         </div>
         <p class="hero-tagline" style="margin-top:24px;font-size:1.25rem;font-weight:700;line-height:1.4;color:var(--text);max-width:640px;">Ristoflow.AI è il collega invisibile che sa fare tutto quello che gli altri non sanno.</p>
         <div class="hero-stats">
           <div class="hero-stat">
-            <strong>4</strong>
+            <strong>3</strong>
             <span>App nell'ecosistema</span>
           </div>
           <div class="hero-stat">
@@ -186,6 +217,67 @@
 </div>
 
 <!-- PERCHE — IL GAP DI COMPETENZE -->
+
+<section class="section story-section">
+  <div class="container">
+    <div class="story-inner">
+      <div>
+        <span class="story-badge">🏆 Nato sul campo</span>
+        <div style="margin:20px 0 24px;">
+          <img src="img/antonio.jpg" alt="Antonio Carullo, fondatore di Ristoflow.AI e chef" style="width:100%;max-width:340px;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,.18);display:block;">
+          <p style="font-size:.85rem;color:var(--text-light);margin-top:10px;font-style:italic;">Antonio Carullo — fondatore di Ristoflow.AI, in cucina a Campo Antico Ricevimenti.</p>
+        </div>
+        <h2>Non in un ufficio. In cucina.</h2>
+        <p>Ristoflow.AI è nato mentre gestivo le mie attività, cercavo un software che capisse davvero i problemi della ristorazione e non lo trovavo da nessuna parte.</p>
+        <p>I gestionali esistenti erano troppo complicati, troppo generici o troppo costosi. Nessuno era stato costruito da qualcuno che avesse mai gestito un servizio da 200 coperti un sabato sera.</p>
+        <p>Così è nato Ristoflow: funzione per funzione, problema per problema, errore per errore. Ogni cosa è passata prima dalle mie cucine, in servizio, e solo dopo è arrivata a voi.</p>
+        <div class="story-quote">
+          <p>"Ogni funzione di Ristoflow.AI risponde a un problema reale che ho vissuto in prima persona. Non è teoria — è esperienza messa in codice."</p>
+          <cite>— Antonio, Fondatore Ristoflow.AI & Titolare Campo Antico Ricevimenti</cite>
+        </div>
+      </div>
+      <div class="story-visual">
+        <div class="story-stat-card">
+          <strong>4</strong>
+          <span>Sedi testate in produzione</span>
+        </div>
+        <div class="story-stat-card accent">
+          <strong>20+</strong>
+          <span>Moduli costruiti sul campo</span>
+        </div>
+        <div class="story-stat-card">
+          <strong>100+</strong>
+          <span>Best practice in Tony AI</span>
+        </div>
+        <div class="story-stat-card accent">
+          <strong>0</strong>
+          <span>Ingegneri necessari per usarlo</span>
+        </div>
+        <div class="story-stat-card full">
+          <strong style="font-size:1.4rem;">Campo Antico Ricevimenti</strong>
+          <span>Il ristorante dove ogni funzione è stata inventata, testata e perfezionata prima del lancio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHE LOCALE HAI? ══ -->
+<section class="section" id="che-locale">
+  <div class="container">
+    <div class="section-header" style="text-align:center;">
+      <h2>Che locale hai?</h2>
+      <p>Cassa, cucina, personale e marketing: ogni locale trova solo quello che gli serve. Scegli il tuo.</p>
+    </div>
+    <div class="tl-scelta">
+      <a class="tl-btn" href="#bar"><img src="img/tipo-bar.jpg" alt="Bar" loading="lazy"><span>☕ Bar</span></a>
+      <a class="tl-btn" href="#ristorante"><img src="img/tipo-ristorante.jpg" alt="Ristorante, trattoria, pizzeria" loading="lazy"><span>🍽️ Ristorante</span></a>
+      <a class="tl-btn" href="#catering"><img src="img/tipo-catering.jpg" alt="Catering ed eventi" loading="lazy"><span>🥂 Catering ed eventi</span></a>
+      <a class="tl-btn" href="#hotel"><img src="img/tipo-hotel.jpg" alt="Hotel con ristorante" loading="lazy"><span>🏨 Hotel con ristorante</span></a>
+      <a class="tl-btn" href="#tasting"><img src="img/tipo-tasting.jpg" alt="Tasting, sagre e pro loco" loading="lazy"><span>🎫 Tasting</span></a>
+    </div>
+  </div>
+</section>
 <section class="section problem-section" id="perche">
   <div class="container">
     <div class="section-header" style="color:white;">
@@ -243,7 +335,7 @@
           <li><span class="tony-check">✓</span>Operatori sul campo usano la PWA senza formazione</li>
           <li><span class="tony-check">✓</span>Supporto WhatsApp diretto — non ticket, non email</li>
         </ul>
-        <a href="https://app.ristoflow-ai.com/#/login?register=1" target="_blank" class="btn btn-primary" style="margin-top:24px;">Provalo tu stesso — gratis 30 giorni →</a>
+        <a href="https://app.ristoflow-ai.com/#/login?register=1" target="_blank" class="btn btn-primary" style="margin-top:24px;">Provalo tu stesso — gratis 14 giorni →</a>
       </div>
       <div class="tony-chat-demo">
         <div class="tony-chat-header">
@@ -316,7 +408,7 @@
   <div class="container">
     <div class="section-header">
       <span class="section-eyebrow">Ecosistema</span>
-      <h2>Quattro app, un'unica piattaforma</h2>
+      <h2>Tre app, un'unica piattaforma</h2>
       <p>Ristoflow.AI non è un software — è un ecosistema completo per gestire ogni aspetto della tua attività.</p>
     </div>
     <div class="ecosystem-grid">
@@ -340,13 +432,6 @@
         <p>Vendi biglietti per serate degustazione, feste e eventi. Gestisci ingressi, consumazioni e pacchetti con QR code.</p>
         <span class="eco-tag">Tasting & Eventi</span>
         <div class="eco-url">tasting.ristoflow-ai.com →</div>
-      </a>
-      <a href="https://social.ristoflow-ai.com" target="_blank" class="eco-card book">
-        <div class="eco-icon">📖</div>
-        <h3>RistoflowBook</h3>
-        <p>Il social network della ristorazione italiana. Condividi momenti, ricette, offerte di lavoro e recensioni con la community.</p>
-        <span class="eco-tag">Social Network</span>
-        <div class="eco-url">social.ristoflow-ai.com →</div>
       </a>
     </div>
   </div>
@@ -466,8 +551,8 @@
         <span style="width:8px;height:8px;background:#00c896;border-radius:50%;display:inline-block;"></span>
         <span id="lead-count">23</span> ristoratori già in lista d'attesa
       </div>
-      <h2 style="margin-bottom:12px;">30 giorni gratis. Nessuna carta di credito.</h2>
-      <p style="margin-bottom:32px;font-size:1.05rem;">Crea il tuo account in 2 minuti e inizia subito. Se dopo 30 giorni non ti ha cambiato la vita, nessun problema — non paghi niente.</p>
+      <h2 style="margin-bottom:12px;">14 giorni gratis. Nessuna carta di credito.</h2>
+      <p style="margin-bottom:32px;font-size:1.05rem;">Crea il tuo account in 2 minuti e inizia subito. Se dopo 14 giorni non ti ha cambiato la vita, nessun problema — non paghi niente.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;">
         <a href="https://app.ristoflow-ai.com/#/login?register=1" target="_blank" class="btn btn-primary btn-lg">🚀 Inizia gratis ora →</a>
         <a href="mailto:info@ristoflow-ai.com?subject=Richiesta demo guidata" class="btn btn-outline btn-lg">Voglio una demo guidata</a>
@@ -498,49 +583,6 @@
 </script>
 
 <!-- STORIA -->
-<section class="section story-section">
-  <div class="container">
-    <div class="story-inner">
-      <div>
-        <span class="story-badge">🏆 Nato sul campo</span>
-        <div style="margin:20px 0 24px;">
-          <img src="img/antonio.jpg" alt="Antonio Carullo, fondatore di Ristoflow.AI e chef" style="width:100%;max-width:340px;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,.18);display:block;">
-          <p style="font-size:.85rem;color:var(--text-light);margin-top:10px;font-style:italic;">Antonio Carullo — fondatore di Ristoflow.AI, in cucina a Campo Antico Ricevimenti.</p>
-        </div>
-        <h2>Non in un ufficio. In cucina.</h2>
-        <p>Ristoflow.AI è nato mentre gestivo le mie attività, cercavo un software che capisse davvero i problemi della ristorazione e non lo trovavo da nessuna parte.</p>
-        <p>I gestionali esistenti erano troppo complicati, troppo generici o troppo costosi. Nessuno era stato costruito da qualcuno che avesse mai gestito un servizio da 200 coperti un sabato sera.</p>
-        <p>Così l'ho costruito io. Funzione per funzione, problema per problema, errore per errore — testato ogni giorno nelle mie cucine prima di essere rilasciato.</p>
-        <div class="story-quote">
-          <p>"Ogni funzione di Ristoflow.AI risponde a un problema reale che ho vissuto in prima persona. Non è teoria — è esperienza messa in codice."</p>
-          <cite>— Antonio, Fondatore Ristoflow.AI & Titolare Campo Antico Ricevimenti</cite>
-        </div>
-      </div>
-      <div class="story-visual">
-        <div class="story-stat-card">
-          <strong>4</strong>
-          <span>Sedi testate in produzione</span>
-        </div>
-        <div class="story-stat-card accent">
-          <strong>20+</strong>
-          <span>Moduli costruiti sul campo</span>
-        </div>
-        <div class="story-stat-card">
-          <strong>100+</strong>
-          <span>Best practice in Tony AI</span>
-        </div>
-        <div class="story-stat-card accent">
-          <strong>0</strong>
-          <span>Ingegneri necessari per usarlo</span>
-        </div>
-        <div class="story-stat-card full">
-          <strong style="font-size:1.4rem;">Campo Antico Ricevimenti</strong>
-          <span>Il ristorante dove ogni funzione è stata inventata, testata e perfezionata prima del lancio</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- TONY AI -->
 <section class="section tony-section">
@@ -577,6 +619,112 @@
 </section>
 
 <!-- PRICING PREVIEW -->
+
+<!-- ══ SEZIONI PER TIPOLOGIA DI LOCALE ══ -->
+<section class="tl-sez" id="bar">
+  <div class="container">
+    <div class="tl-griglia">
+      <div class="tl-foto"><img src="img/tipo-bar.jpg" alt="Bar" loading="lazy"></div>
+      <div>
+        <span class="tl-tag">☕ Bar</span>
+        <h2>Il cliente del caffè lo vedi ogni giorno. Sai come si chiama?</h2>
+        <p>Quasi nessun bar ha un sito né una tessera fedeltà. Con Ristoflow li hai entrambi in un pomeriggio, e la cassa li riconosce da sola.</p>
+        <div class="tl-des">Chi fa colazione da te torna anche all’aperitivo, perché glielo ricordi tu, con un messaggio al momento giusto.</div>
+        <ul class="tl-lista"><li><b>Cassa</b> per banco e asporto, con chiusura di fine giornata, che legge coupon e tessere con la fotocamera.</li><li><b>Tessera fedeltà nel telefono</b>: punti a ogni conto, livelli argento e oro, regalo per il compleanno.</li><li><b>Sito e menu con QR</b> che si aggiornano da soli.</li><li><b>Promo con coupon</b> e campagne Meta create con Tony, con l’anteprima prima che partano.</li><li><b>Recensioni</b>: ogni collaboratore ha il suo QR, il cliente finisce su Google con un tocco.</li><li><b>Timbrature</b> dal telefono e costo del personale.</li></ul>
+        <div class="tl-azione"><div class="tl-prezzo">149 € <small>al mese · 1.520 € l’anno</small></div><a class="btn btn-primary" href="https://app.ristoflow-ai.com/#/login?register=1" target="_blank" rel="noopener">Prova 14 giorni</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tl-sez" id="ristorante">
+  <div class="container">
+    <div class="tl-griglia">
+      <div class="tl-foto"><img src="img/tipo-ristorante.jpg" alt="Ristorante, trattoria, pizzeria" loading="lazy"></div>
+      <div>
+        <span class="tl-tag">🍽️ Ristorante, trattoria, pizzeria</span>
+        <h2>Quanto ti è costato il piatto che hai appena mandato in sala?</h2>
+        <p>Le fatture entrano da sole, il magazzino si carica da solo, e ogni ricetta ti dice il costo pieno a porzione: materia prima, lavoro ed energia.</p>
+        <div class="tl-des">Il nostro piatto più venduto ci faceva perdere 2,20 € a porzione. L’abbiamo scoperto così.</div>
+        <ul class="tl-lista"><li><b>Cassa e comande</b>: conto al tavolo e al banco, chiusura di cassa, e il cameriere sa cosa proporre, compreso il vino giusto per il piatto ordinato.</li><li><b>Prenotazioni online e WhatsApp</b>, con la scheda personale del cliente per modificare o disdire.</li><li><b>Ricettario e food cost</b>: dosi, fasi, grammature per locale, allergeni.</li><li><b>Acquisti e magazzino</b>: fatture elettroniche lette da sole, ordini ai fornitori, scadenze e sprechi.</li><li><b>Menu engineering</b>: quali piatti vendono e quali rendono, con il prezzo consigliato.</li><li><b>Personale</b>: timbrature, buste paga lette da Tony, quale turno ti fa guadagnare e quale ti costa.</li><li><b>Marketing</b>: campagne Meta e Google, promo, messaggi automatici, e quanto ti ha reso ogni campagna in euro.</li></ul>
+        <div class="tl-azione"><div class="tl-prezzo">349 € <small>al mese · 3.560 € l’anno</small></div><a class="btn btn-primary" href="https://wa.me/393349487644?text=Ciao!%20Vorrei%20una%20demo%20di%20Ristoflow%20per%20il%20mio%20ristorante" target="_blank" rel="noopener">Prenota una demo</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tl-sez" id="catering">
+  <div class="container">
+    <div class="tl-griglia">
+      <div class="tl-foto"><img src="img/tipo-catering.jpg" alt="Catering ed eventi" loading="lazy"></div>
+      <div>
+        <span class="tl-tag">🥂 Catering ed eventi</span>
+        <h2>Questo evento ti conviene? Saperlo prima di firmare.</h2>
+        <p>Il preventivo ti mostra il margine di ogni portata. Il cliente riceve un documento pulito, senza costi, e paga l’acconto online.</p>
+        <div class="tl-des">Fotografi il foglio del banchetto: Tony prepara preventivo, prenotazione, lavorazioni e planning.</div>
+        <ul class="tl-lista"><li><b>Tutto il pacchetto Ristorante.</b></li><li><b>Preventivi con il margine per portata</b>, servizi con il fornitore dietro, isole e modelli di buffet.</li><li><b>Laboratorio</b>: planning della settimana, fasi firmate con i tempi veri, lotti e tracciabilità.</li><li><b>Etichette HACCP</b> con ingredienti, allergeni, scadenza e QR. Il magazzino si carica quando il lotto è fatto.</li><li><b>Spazio sposi</b>: invitati, fornitori, idee e una pagina per gli ospiti.</li><li><b>Briefing di servizio</b>: le intolleranze in cima, prima di tutto.</li></ul>
+        <div class="tl-azione"><div class="tl-prezzo">449 € <small>al mese · 4.580 € l’anno</small></div><a class="btn btn-primary" href="https://wa.me/393349487644?text=Ciao!%20Vorrei%20una%20demo%20di%20Ristoflow%20per%20catering%20ed%20eventi" target="_blank" rel="noopener">Prenota una demo</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tl-sez" id="hotel">
+  <div class="container">
+    <div class="tl-griglia">
+      <div class="tl-foto"><img src="img/tipo-hotel.jpg" alt="Hotel con ristorante" loading="lazy"></div>
+      <div>
+        <span class="tl-tag">🏨 Hotel con ristorante</span>
+        <h2>Camere e cucina, finalmente nello stesso posto.</h2>
+        <p>Chi dorme da te è già un cliente del ristorante. Con un solo strumento vendi il pacchetto completo: cena, camera e colazione.</p>
+        <div class="tl-des">Pacchetto Capodanno con camera, pagina creata con Tony: 3 camere vendute in 9 minuti.</div>
+        <ul class="tl-lista"><li><b>Tutto il pacchetto Ristorante.</b></li><li><b>Camere</b>: tariffe, prenotazioni online, check-in digitale, colazioni.</li><li><b>Pacchetti</b> con pagina di prenotazione e pagamento.</li></ul>
+        <div class="tl-azione"><div class="tl-prezzo">429 € <small>al mese · 4.376 € l’anno</small></div><a class="btn btn-primary" href="https://wa.me/393349487644?text=Ciao!%20Vorrei%20una%20demo%20di%20Ristoflow%20per%20il%20mio%20hotel" target="_blank" rel="noopener">Prenota una demo</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tl-sez" id="tasting">
+  <div class="container">
+    <div class="tl-griglia">
+      <div class="tl-foto"><img src="img/tipo-tasting.jpg" alt="Tasting, sagre e pro loco" loading="lazy"></div>
+      <div>
+        <span class="tl-tag">🎫 Tasting, sagre e pro loco</span>
+        <h2>La festa finisce. I numeri restano.</h2>
+        <p>Biglietti online, ingresso con il QR, cassa ai tavoli: sai quanti sono venuti, cosa hanno preso e quanto hai incassato.</p>
+        <div class="tl-des">Il volontario impara in cinque minuti: se sa usare WhatsApp, sa usare Ristoflow.</div>
+        <ul class="tl-lista"><li><b>Vendita biglietti</b> e check-in all’ingresso.</li><li><b>Cassa e tavoli</b>.</li><li><b>Promo e comunicazione</b> per l’evento.</li><li><b>Mansionario</b>: ognuno sa cosa fare e quando.</li></ul>
+        <div class="tl-azione"><div class="tl-prezzo">99 € <small>al mese · 1.010 € l’anno</small></div><a class="btn btn-primary" href="https://wa.me/393349487644?text=Ciao!%20Vorrei%20informazioni%20su%20Ristoflow%20per%20eventi%20e%20pro%20loco" target="_blank" rel="noopener">Scrivici</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tl-sez" id="marketing-senza-agenzia">
+  <div class="container">
+    <div class="tl-griglia">
+      <div class="tl-foto"><img src="img/tipo-marketing.jpg" alt="Pasta saltata in padella" loading="lazy"></div>
+      <div>
+        <span class="tl-tag">📣 Il marketing senza agenzia</span>
+        <h2>Paghi un’agenzia che non ha mai assaggiato i tuoi piatti?</h2>
+        <p>Le campagne le crea Tony, che conosce il tuo menu, i tuoi orari e i tuoi clienti. Tu guardi l’anteprima e decidi. Poi vedi quanto ti ha reso ogni campagna, in euro.</p>
+      </div>
+    </div>
+    <div class="tl-prove">
+      <div class="tl-prova"><b>551 clic</b><span>in 2 giorni di campagne Capodanno create con Tony, con 16 € di pubblicità: 3 centesimi a clic.</span></div>
+      <div class="tl-prova"><b>3 camere</b><span>vendute in 9 minuti dalla pagina Capodanno creata con Tony.</span></div>
+      <div class="tl-prova"><b>8.500 €</b><span>quanto costava il primo anno tra agenzia, sito, landing, scheda Google e piattaforma nei nostri locali.</span></div>
+    </div>
+    <div class="tl-tab"><table>
+      <tr><th></th><th>Primo anno</th><th>Dal secondo anno</th></tr>
+      <tr><td>Agenzia e piattaforma</td><td>8.500 €</td><td>5.900 €</td></tr>
+      <tr><td>Ristoflow Ristorante, annuale</td><td>3.560 €</td><td>3.560 €</td></tr>
+    </table></div>
+    <p style="color:#6b7280;font-size:.9rem;margin-top:10px;">Costi reali sostenuti dai locali di Campo Antico. Pubblicità pagata a Meta e Google esclusa in entrambi i casi.</p>
+  </div>
+</section>
+
 <section class="section" id="prezzi">
   <div class="container">
     <div class="section-header">
@@ -590,7 +738,7 @@
       <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.85;margin-bottom:8px;">🏆 Offerta di lancio 2026 — 20 posti</div>
       <h3 style="color:#fff;font-size:clamp(1.4rem,4vw,2rem);margin-bottom:10px;">Diventa Fondatore</h3>
       <p style="opacity:.92;max-width:520px;margin:0 auto 16px;">Tutte le funzioni del piano, per il tuo locale, a un prezzo fisso <strong>che non sale mai</strong>.</p>
-      <div style="font-size:2.4rem;font-weight:800;line-height:1;">€2.000<span style="font-size:.95rem;font-weight:600;opacity:.85;">/anno, a vita</span></div>
+      <div style="font-size:2.4rem;font-weight:800;line-height:1;">€2.000<span style="font-size:.95rem;font-weight:600;opacity:.85;">/anno, prezzo bloccato</span></div>
       <a href="https://wa.me/393349487644?text=Ciao!%20Voglio%20un%20posto%20Fondatore%20Ristoflow%202026" target="_blank" rel="noopener" class="btn btn-white" style="margin-top:20px;font-size:1.05rem;padding:13px 30px;">💬 Prenota il tuo posto →</a>
     </div>
 
@@ -605,9 +753,9 @@
           <li>HR, Timbrature & Ferie</li>
           <li>Sito vetrina incluso</li>
           <li>Tony AI</li>
-          <li>30 giorni di prova gratuita</li>
+          <li>14 giorni di prova gratuita</li>
         </ul>
-        <a href="https://app.ristoflow-ai.com/#/login?register=1" target="_blank" rel="noopener" class="btn btn-primary">Prova gratis 30 giorni</a>
+        <a href="https://app.ristoflow-ai.com/#/login?register=1" target="_blank" rel="noopener" class="btn btn-primary">Prova gratis 14 giorni</a>
         <a href="https://wa.me/393349487644?text=Ciao!%20Sono%20interessato%20al%20piano%20Starter%20di%20Ristoflow" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:8px;font-size:13px;color:#6b7280;text-decoration:underline;">o parlane con noi</a>
       </div>
       <div class="pricing-card featured">
@@ -647,9 +795,9 @@
 <section class="cta-section">
   <div class="container">
     <h2>Smetti di rincorrere i problemi. Inizia a prevederli.</h2>
-    <p>30 giorni gratis. Nessuna carta di credito. Nessun ingegnere richiesto.</p>
+    <p>14 giorni gratis. Nessuna carta di credito. Nessun ingegnere richiesto.</p>
     <div class="cta-actions">
-      <a href="https://app.ristoflow-ai.com/#/login?register=1" class="btn btn-accent btn-lg" target="_blank">🚀 Provalo gratis 30 giorni →</a>
+      <a href="https://app.ristoflow-ai.com/#/login?register=1" class="btn btn-accent btn-lg" target="_blank">🚀 Provalo gratis 14 giorni →</a>
       <a href="mailto:info@ristoflow-ai.com?subject=Richiesta demo guidata Ristoflow.AI" class="btn btn-white btn-lg">Voglio una demo guidata</a>
     </div>
   </div>
@@ -673,7 +821,6 @@
           <li><a href="https://app.ristoflow-ai.com">Gestionale</a></li>
           <li><a href="https://hotel.ristoflow-ai.com">Hotel</a></li>
           <li><a href="https://tasting.ristoflow-ai.com">Tasting</a></li>
-          <li><a href="https://social.ristoflow-ai.com">RistoflowBook</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -702,14 +849,6 @@
 <script src="js/main.js"></script>
 
 
-<!-- BANNER FISSO RISTOFLOWBOOK -->
-<div id="rfbook-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,#0E5A7A 0%,#0d7a5a 50%,#c2410c 100%);color:white;display:flex;align-items:center;justify-content:center;gap:16px;padding:12px 20px;box-shadow:0 -4px 20px rgba(0,0,0,0.2);flex-wrap:wrap;">
-  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;"><div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.4);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.5 14.5L4 19l1.5 1.5L10 16m5.5-1.5L20 19l-1.5 1.5L14 16" stroke="white" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.5"/><path d="M12 4v8M8 8h8" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg></div><span style="font-weight:700;font-size:15px;">RistoflowBook</span></div>
-  <span style="font-size:14px;opacity:0.92;text-align:center;">Il social network della ristorazione italiana — recensioni, ricette, momenti e offerte</span>
-  <a href="https://social.ristoflow-ai.com" target="_blank" style="background:white;color:#0E5A7A;font-weight:700;font-size:13px;padding:8px 18px;border-radius:20px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Scopri →</a>
-  <button onclick="document.getElementById('rfbook-banner').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,0.7);cursor:pointer;font-size:20px;line-height:1;padding:0 4px;flex-shrink:0;">×</button>
-</div>
-<style>body{padding-bottom:70px;}@media(max-width:600px){#rfbook-banner{gap:10px;padding:10px 14px;}#rfbook-banner span:nth-child(2){display:none;}}</style>
 
 </body>
 </html>
