@@ -409,7 +409,8 @@ function renderPiani() {
 
     const isAnnuale  = p.tipo_fatturazione === 'annuale';
     const isTantum   = p.tipo_fatturazione === 'una_tantum';
-    const prezzoBase = annuale && p.prezzo_annuale ? p.prezzo_annuale / 12 : p.prezzo_mensile;
+    // piani solo annuali (Fondatore): si mostra il prezzo dell'anno, non quello mensile equivalente
+    const prezzoBase = (isAnnuale && p.prezzo_annuale) ? p.prezzo_annuale : (annuale && p.prezzo_annuale ? p.prezzo_annuale / 12 : p.prezzo_mensile);
     const prezzoFmt  = prezzoBase % 1 === 0 ? prezzoBase : prezzoBase.toFixed(0);
 
     let suffisso = '/mese';
