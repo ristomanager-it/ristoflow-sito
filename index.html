@@ -867,5 +867,31 @@ h2{font-size:clamp(1.8rem,3.4vw,2.6rem)}
 
 
 
+<script>
+// 12/11/2026: i numeri del Capodanno si aggiornano da soli (prenotazioni, acconti, spesa pubblicitaria). Se la chiamata non va, restano quelli scritti.
+(function(){
+  var URL_RPC = "https://cuhcscpvhypoaplcmtjk.supabase.co/rest/v1/rpc/sito_numeri_capodanno";
+  var chiave = "sb_publishable_WotaBvSScN1GwFw_rVWbzA_2OEcRJy-"; // chiave pubblica (anon), la stessa gia' usata dalla pagina per i prezzi
+  if (!document.querySelector("[data-cap]")) return;
+  var euro = function (n) { return Number(n).toLocaleString("it-IT", { maximumFractionDigits: 0 }) + " €"; };
+  var mesi = ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+  fetch(URL_RPC, { method: "POST", headers: { "apikey": chiave, "Authorization": "Bearer " + chiave, "Content-Type": "application/json" }, body: "{}" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d || !d.prenotazioni) return;
+      var v = {
+        valore: euro(d.valore), giorni: String(d.giorni || ""), ospiti: Number(d.ospiti).toLocaleString("it-IT"),
+        prenotazioni: String(d.prenotazioni), acconti: euro(d.acconti), clic_meta: Number(d.clic_meta).toLocaleString("it-IT"),
+        costo_clic: d.costo_clic_meta ? Math.max(1, Math.round(d.costo_clic_meta * 100)) + " centesimi" : "",
+        spesa: euro(d.spesa)
+      };
+      if (d.aggiornato) { var p = String(d.aggiornato).split("-"); v.aggiornato = Number(p[2]) + " " + mesi[Number(p[1]) - 1]; }
+      document.querySelectorAll("[data-cap]").forEach(function (el) {
+        var k = el.getAttribute("data-cap");
+        if (v[k]) el.textContent = v[k];
+      });
+    }).catch(function () {});
+})();
+</script>
 </body>
 </html>
