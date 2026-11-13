@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatture elettroniche dentro il gestionale — Ristoflow.AI</title>
+  <meta name="description" content="Le fatture dei fornitori arrivano dallo SDI e caricano il magazzino da sole. Le tue partono dal gestionale con una P.IVA. Un solo posto per tutto.">
+  <meta property="og:title" content="Fatture elettroniche dentro il gestionale — Ristoflow.AI">
+  <meta property="og:description" content="Le fatture dei fornitori arrivano dallo SDI e caricano il magazzino da sole. Le tue partono dal gestionale con una P.IVA.">
+  <link rel="icon" href="../img/logo.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body { background: #fafbfc; }
+    .lp-wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 60px; }
+    .lp-logo { display:flex; align-items:center; gap:10px; margin-bottom:36px; }
+    .lp-logo img { height:36px; }
+    .lp-logo span { font-weight:800; font-size:1.1rem; color:var(--text); }
+    .lp-hero h1 { font-size: clamp(1.7rem, 5.5vw, 2.5rem); line-height:1.15; margin-bottom:14px; }
+    .lp-hero p { font-size:1.08rem; color:var(--text-light); margin-bottom:26px; }
+    .lp-cta { display:block; text-align:center; background:var(--primary); color:#fff; font-weight:700; font-size:1.05rem; padding:16px 28px; border-radius:12px; text-decoration:none; box-shadow:0 8px 24px rgba(14,90,122,.25); }
+    .lp-cta:hover { filter:brightness(1.08); color:#fff; }
+    .lp-note { text-align:center; font-size:.82rem; color:var(--text-light); margin-top:10px; }
+    .lp-blocco { margin:44px 0; }
+    .lp-blocco h2 { font-size:1.35rem; margin-bottom:12px; }
+    .lp-blocco p { font-size:1rem; line-height:1.6; margin-bottom:12px; }
+    .lp-occhiello { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:6px; }
+    .lp-due { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
+    @media (max-width:640px){ .lp-due { grid-template-columns:1fr; } }
+    .lp-card { background:#fff; border:1.5px solid var(--border); border-radius:16px; padding:20px; }
+    .lp-card h3 { font-size:1.05rem; margin-bottom:10px; }
+    .lp-card ul { list-style:none; padding:0; margin:0; }
+    .lp-card li { position:relative; padding-left:22px; margin-bottom:9px; font-size:.95rem; line-height:1.45; }
+    .lp-card li::before { content:"\2713"; position:absolute; left:0; color:var(--accent); font-weight:800; }
+    .lp-esiti { background:#fff; border:1.5px solid var(--border); border-radius:16px; padding:18px 20px; margin-top:18px; }
+    .lp-esiti .titolo { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-light); margin-bottom:12px; }
+    .riga { display:flex; justify-content:space-between; gap:10px; padding:9px 0; border-bottom:1px solid #f1f5f9; font-size:.93rem; }
+    .riga:last-child { border-bottom:0; }
+    .pill { font-size:.78rem; font-weight:700; border-radius:99px; padding:3px 10px; white-space:nowrap; }
+    .verde { background:#dcfce7; color:#15803d; } .giallo { background:#fef3c7; color:#b45309; } .rosso { background:#fee2e2; color:#b91c1c; } .blu { background:#e0f2fe; color:#0E5A7A; }
+    .passo { display:flex; gap:14px; margin-bottom:16px; align-items:flex-start; }
+    .passo .n { flex:0 0 32px; height:32px; border-radius:50%; background:var(--primary); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .passo p { margin:0; font-size:.97rem; line-height:1.5; }
+    .lp-tempo { text-align:center; background:#f0fdf4; border:1.5px solid #bbf7d0; color:#15803d; border-radius:12px; padding:14px 18px; font-weight:700; margin:30px 0; }
+    .lp-footer { text-align:center; margin-top:48px; font-size:.78rem; color:var(--text-light); }
+    .lp-footer a { color:var(--text-light); }
+  </style>
+</head>
+<body>
+  <div class="lp-wrap">
+    <div class="lp-logo"><img src="../img/logo.png" alt="Ristoflow"><span>Ristoflow.AI</span></div>
+
+    <div class="lp-hero">
+      <h1>Le fatture entrano e escono dal gestionale. Basta un programma a parte.</h1>
+      <p>Quelle dei fornitori arrivano dallo SDI e caricano il magazzino da sole. Le tue partono da Ristoflow: scrivi la partita IVA del cliente, il resto si compila.</p>
+      <a class="lp-cta" href="https://app.ristoflow-ai.com/#/login?register=1&amp;utm_source=sito&amp;utm_campaign=fatturazione">Prova Ristoflow — gratis</a>
+      <p class="lp-note">30 giorni gratis · Nessuna carta di credito</p>
+    </div>
+
+    <!-- PERCHE' -->
+    <div class="lp-blocco">
+      <div class="lp-occhiello">Perché</div>
+      <h2>Nato dai problemi delle mie cucine</h2>
+      <p>In un ristorante le fatture passano da tre posti diversi: il portale delle fatture, il foglio del magazzino, il commercialista. Lo stesso dato si ricopia a mano più volte, e intanto il prezzo della farina è cambiato e il food cost è già vecchio.</p>
+      <p>Quando poi un'azienda ti chiede la fattura per la cena di Natale, ricominci da capo: partita IVA, indirizzo, codice destinatario, aliquote. Abbiamo messo tutto in un posto solo, quello dove lavori già.</p>
+    </div>
+
+    <!-- COME -->
+    <div class="lp-blocco">
+      <div class="lp-occhiello">Come</div>
+      <h2>Un solo collegamento con lo SDI, in tutte e due le direzioni</h2>
+      <div class="lp-due">
+        <div class="lp-card">
+          <h3>📥 Le fatture che ricevi</h3>
+          <ul>
+            <li>Arrivano dallo SDI direttamente in Ristoflow, senza scaricarle</li>
+            <li>Il fornitore viene riconosciuto o creato da solo</li>
+            <li>Ogni riga è abbinata al prodotto giusto</li>
+            <li>Il magazzino si carica e i prezzi si aggiornano</li>
+            <li>Il food cost delle ricette segue la spesa vera</li>
+          </ul>
+        </div>
+        <div class="lp-card">
+          <h3>📤 Le fatture che emetti</h3>
+          <ul>
+            <li>Scrivi la partita IVA: ragione sociale, indirizzo, PEC e codice destinatario si compilano</li>
+            <li>IVA divisa per aliquota, sconti, righe esenti e bollo calcolati da soli</li>
+            <li>Numero progressivo assegnato all'emissione</li>
+            <li>Partono allo SDI con un tocco</li>
+            <li>Note di credito collegate alla fattura</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lp-esiti">
+        <div class="titolo">🧾 Fatture emesse — sai sempre a che punto sono</div>
+        <div class="riga"><span>Cena aziendale</span><span class="pill verde">Consegnata</span></div>
+        <div class="riga"><span>Matrimonio, acconto</span><span class="pill blu">Inviata</span></div>
+        <div class="riga"><span>Pranzo di lavoro</span><span class="pill giallo">Mancata consegna</span></div>
+        <div class="riga"><span>Catering esterno</span><span class="pill rosso">Scartata: da correggere</span></div>
+      </div>
+    </div>
+
+    <!-- COSA -->
+    <div class="lp-blocco">
+      <div class="lp-occhiello">Cosa</div>
+      <h2>Come funziona, in tre passi</h2>
+      <div class="passo"><div class="n">1</div><p><strong>Attivi la fatturazione</strong> con i dati della tua azienda: la partita IVA compila quasi tutto.</p></div>
+      <div class="passo"><div class="n">2</div><p><strong>Indichi Ristoflow come destinatario</strong> sul portale Fatture e Corrispettivi: da quel giorno le fatture dei fornitori arrivano qui.</p></div>
+      <div class="passo"><div class="n">3</div><p><strong>Emetti e ricevi dal gestionale</strong>: acquisti, magazzino, preventivi e cassa parlano la stessa lingua delle fatture.</p></div>
+    </div>
+
+    <div class="lp-tempo">🧾 Basta la partita IVA del cliente. E tutto sta dove lavori già.</div>
+
+    <a class="lp-cta" href="https://app.ristoflow-ai.com/#/login?register=1&amp;utm_source=sito&amp;utm_campaign=fatturazione">Prova Ristoflow — gratis</a>
+    <p class="lp-note">30 giorni gratis · Nessuna carta di credito</p>
+
+    <div class="lp-footer">
+      Ristoflow.AI — Nato in cucina, non in laboratorio · <a href="../funzionalita.html">Tutte le funzionalità</a> · <a href="../privacy.html">Privacy</a> · <a href="../cookie.html">Cookie</a>
+    </div>
+  </div>
+
+<script>
+(function () {
+  // contatore visite nostro: solo pagina e provenienza, nessun dato personale (page_analytics)
+  try {
+    var A = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1aGNzY3B2aHlwb2FwbGNtdGprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4MjY4MjgsImV4cCI6MjA3OTQwMjgyOH0.q9zAs0oh8F1-whtORHBIORF5jIn1NTS3LvSMWleP0a0";
+    var q = new URLSearchParams(location.search), ses = null;
+    try { ses = sessionStorage.getItem("rf_ses"); if (!ses) { ses = Math.random().toString(36).slice(2) + Date.now().toString(36); sessionStorage.setItem("rf_ses", ses); } } catch (e) {}
+    var ref = document.referrer || "";
+    fetch("https://cuhcscpvhypoaplcmtjk.supabase.co/rest/v1/page_analytics", { method: "POST", keepalive: true,
+      headers: { "Content-Type": "application/json", "apikey": A, "Authorization": "Bearer " + A, "Prefer": "return=minimal" },
+      body: JSON.stringify({ azienda_id: "a43d41b5-f4ac-494f-8144-6574347a754f", pagina: "lp-fatturazione",
+        pagina_id: "a43d41b5-f4ac-494f-8144-6574347a754f", tipo: "view", elemento: "sito_pagina",
+        referrer: ref ? ref.slice(0, 250) : null,
+        utm_source: q.get("utm_source") || (ref ? (function () { try { return new URL(ref).hostname; } catch (e) { return null; } })() : "diretto"),
+        utm_medium: q.get("utm_medium"), utm_campaign: q.get("utm_campaign"),
+        device: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop", session_id: ses }) }).catch(function () {});
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
