@@ -568,5 +568,24 @@
 <script src="js/main.js"></script>
 
 
+<script>
+(function () {
+  // contatore visite nostro: solo pagina e provenienza, nessun dato personale (page_analytics)
+  try {
+    var A = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1aGNzY3B2aHlwb2FwbGNtdGprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4MjY4MjgsImV4cCI6MjA3OTQwMjgyOH0.q9zAs0oh8F1-whtORHBIORF5jIn1NTS3LvSMWleP0a0";
+    var q = new URLSearchParams(location.search), ses = null;
+    try { ses = sessionStorage.getItem("rf_ses"); if (!ses) { ses = Math.random().toString(36).slice(2) + Date.now().toString(36); sessionStorage.setItem("rf_ses", ses); } } catch (e) {}
+    var ref = document.referrer || "";
+    fetch("https://cuhcscpvhypoaplcmtjk.supabase.co/rest/v1/page_analytics", { method: "POST", keepalive: true,
+      headers: { "Content-Type": "application/json", "apikey": A, "Authorization": "Bearer " + A, "Prefer": "return=minimal" },
+      body: JSON.stringify({ azienda_id: "a43d41b5-f4ac-494f-8144-6574347a754f", pagina: "sito-funzionalita",
+        pagina_id: "a43d41b5-f4ac-494f-8144-6574347a754f", tipo: "view", elemento: "sito_pagina",
+        referrer: ref ? ref.slice(0, 250) : null,
+        utm_source: q.get("utm_source") || (ref ? (function () { try { return new URL(ref).hostname; } catch (e) { return null; } })() : "diretto"),
+        utm_medium: q.get("utm_medium"), utm_campaign: q.get("utm_campaign"),
+        device: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop", session_id: ses }) }).catch(function () {});
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>
