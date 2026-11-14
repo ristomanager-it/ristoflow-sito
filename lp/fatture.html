@@ -7,6 +7,7 @@
   <meta name="description" content="Ricevi e invia le fatture elettroniche con Ristoflow. Le fatture dei fornitori diventano costi, scadenze e IVA del mese, pronte per il commercialista. Da 79 € l'anno, primi 3 mesi gratis.">
   <meta property="og:title" content="Ristoflow Fatture — da 79 € l'anno">
   <meta property="og:description" content="Le fatture dei fornitori diventano costi, scadenze e IVA del mese. Primi 3 mesi gratis.">
+  <meta name="robots" content="noindex">
   <link rel="icon" href="../img/logo.png">
   <link rel="stylesheet" href="../css/style.css">
   <style>
@@ -64,7 +65,8 @@
       <h1>Le tue fatture lavorano per la tua cucina.</h1>
       <p>Ricevi e invii le fatture elettroniche con Ristoflow. Ogni fattura dei fornitori diventa costo, scadenza e IVA del mese, già pronta per il tuo commercialista.</p>
       <div class="lp-prezzo">Da 79 € l'anno + IVA · i primi 3 mesi sono gratis</div>
-      <a class="lp-cta" href="#attiva">Richiedi l'attivazione</a>
+      <a class="lp-cta rf-mail" href="mailto:info@ristoflow-ai.com?subject=Informazioni%20Ristoflow%20Fatture">Chiedi informazioni</a>
+      <p class="lp-note">Scrivi a info@ristoflow-ai.com · rispondiamo entro due giorni lavorativi</p>
     </div>
 
     <!-- PERCHE' -->
@@ -119,32 +121,17 @@
 
     <div class="lp-blocco">
       <h2>Come si comincia</h2>
-      <div class="passo"><div class="n">1</div><p><strong>Richiedi l'attivazione</strong> qui sotto: ti chiamiamo e attiviamo il tuo spazio con la partita IVA.</p></div>
+      <div class="passo"><div class="n">1</div><p><strong>Scrivici</strong>: ti spieghiamo il servizio e attiviamo il tuo spazio con la partita IVA.</p></div>
       <div class="passo"><div class="n">2</div><p><strong>Indichi Ristoflow come destinatario</strong> sul portale Fatture e Corrispettivi dell'Agenzia delle Entrate. Ti guidiamo passo per passo: dieci minuti, una volta sola.</p></div>
       <div class="passo"><div class="n">3</div><p><strong>Da quel giorno le fatture arrivano qui</strong> e le tue partono da qui. La conservazione per dieci anni la fa gratis l'Agenzia delle Entrate.</p></div>
     </div>
 
-    <!-- MODULO -->
+    <!-- CONTATTO -->
     <div class="lp-blocco" id="attiva">
-      <h2>Richiedi l'attivazione</h2>
-      <form class="lp-form" id="modulo" novalidate>
-        <div><label for="f-piva">Partita IVA</label><input id="f-piva" inputmode="numeric" maxlength="16" autocomplete="off" required></div>
-        <div><label for="f-rs">Nome del locale o ragione sociale</label><input id="f-rs" maxlength="120" autocomplete="organization" required></div>
-        <div><label for="f-nome">Il tuo nome</label><input id="f-nome" maxlength="80" autocomplete="name" required></div>
-        <div><label for="f-tel">Telefono</label><input id="f-tel" type="tel" maxlength="30" autocomplete="tel" required></div>
-        <div><label for="f-email">Email</label><input id="f-email" type="email" maxlength="120" autocomplete="email" required></div>
-        <div><label for="f-piano">Piano</label>
-          <select id="f-piano">
-            <option value="fatture">Fatture · 79 € l'anno</option>
-            <option value="fatture_plus">Fatture Plus · 129 € l'anno</option>
-            <option value="non_so">Non so ancora</option>
-          </select>
-        </div>
-        <label class="consenso intera"><input type="checkbox" id="f-ok"> <span>Accetto che Ristoflow usi questi dati per contattarmi sull'attivazione. <a href="../privacy.html" target="_blank">Privacy</a></span></label>
-        <div class="intera"><button class="lp-cta" type="submit" id="invia">Richiedi i 3 mesi gratis</button></div>
-        <div class="intera" id="esito"></div>
-      </form>
-      <div class="ok-box" id="grazie">✓ Richiesta arrivata. Ti chiamiamo entro due giorni lavorativi per attivare Ristoflow Fatture.</div>
+      <h2>Vuoi saperne di più?</h2>
+      <p>Scrivici con il nome del locale e un numero di telefono: ti richiamiamo noi.</p>
+      <a class="lp-cta rf-mail" href="mailto:info@ristoflow-ai.com?subject=Informazioni%20Ristoflow%20Fatture">Scrivi a info@ristoflow-ai.com</a>
+      <p class="lp-note">Rispondiamo entro due giorni lavorativi</p>
     </div>
 
     <div class="lp-footer">
@@ -174,33 +161,8 @@
   }
   conta("view", "sito_pagina");
 
-  var f = document.getElementById("modulo"), esito = document.getElementById("esito"), btn = document.getElementById("invia");
-  function v(id) { return (document.getElementById(id).value || "").trim(); }
-  f.addEventListener("submit", function (e) {
-    e.preventDefault();
-    esito.style.color = "#b91c1c";
-    var piva = v("f-piva").replace(/\s/g, "").replace(/^IT/i, "");
-    if (!/^\d{11}$/.test(piva) && !/^[A-Za-z0-9]{16}$/.test(piva)) { esito.textContent = "Controlla la partita IVA: sono 11 cifre."; return; }
-    if (!v("f-rs") || !v("f-nome")) { esito.textContent = "Scrivi il nome del locale e il tuo nome."; return; }
-    if (v("f-tel").replace(/\D/g, "").length < 8) { esito.textContent = "Scrivi un telefono a cui chiamarti."; return; }
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("f-email"))) { esito.textContent = "Controlla l'email."; return; }
-    if (!document.getElementById("f-ok").checked) { esito.textContent = "Serve il consenso per poterti contattare."; return; }
-    btn.disabled = true; esito.style.color = "inherit"; esito.textContent = "Invio...";
-    var dati = { piva: piva, ragione_sociale: v("f-rs"), telefono: v("f-tel"), piano: v("f-piano"),
-                 utm_source: q.get("utm_source"), utm_campaign: q.get("utm_campaign") };
-    fetch(URL_SB + "/rest/v1/ristoflow_leads", { method: "POST",
-      headers: { "Content-Type": "application/json", "apikey": A, "Authorization": "Bearer " + A, "Prefer": "return=minimal" },
-      body: JSON.stringify({ nome: v("f-nome"), email: v("f-email"), tipo_locale: null, stato: "nuovo",
-        fonte: "lp-fatture", tipo: "solo_fatture", note: JSON.stringify(dati) }) })
-    .then(function (r) {
-      if (!r.ok) throw new Error(String(r.status));
-      conta("submit", "richiesta_fatture");
-      f.style.display = "none"; document.getElementById("grazie").style.display = "block";
-    })
-    .catch(function () {
-      btn.disabled = false; esito.style.color = "#b91c1c";
-      esito.textContent = "Non è partita. Riprova tra un attimo, oppure scrivici dal sito.";
-    });
+  Array.prototype.forEach.call(document.querySelectorAll(".rf-mail"), function (a) {
+    a.addEventListener("click", function () { conta("click", "mail_info"); });
   });
 })();
 </script>
