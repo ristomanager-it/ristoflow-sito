@@ -141,7 +141,7 @@
         fetch("https://cuhcscpvhypoaplcmtjk.supabase.co/rest/v1/page_analytics", { method: "POST", keepalive: true,
           headers: { "Content-Type": "application/json", "apikey": A, "Authorization": "Bearer " + A, "Prefer": "return=minimal" },
           body: JSON.stringify({ azienda_id: "a43d41b5-f4ac-494f-8144-6574347a754f", pagina: "lp-fatturazione",
-            pagina_id: "a43d41b5-f4ac-494f-8144-6574347a754f", tipo: "click", elemento: "mail_info", session_id: ses }) }).catch(function () {});
+            pagina_id: "a43d41b5-f4ac-494f-8144-6574347a754f", tipo: "click", elemento: (a.href.indexOf("wa.me") >= 0 ? "whatsapp" : "mail_info"), session_id: ses }) }).catch(function () {});
       });
     });
   } catch (e) {}
