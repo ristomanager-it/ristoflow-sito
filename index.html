@@ -930,6 +930,15 @@ h2{font-size:clamp(1.8rem,3.4vw,2.6rem)}
         utm_source: q.get("utm_source") || (ref ? (function () { try { return new URL(ref).hostname; } catch (e) { return null; } })() : "diretto"),
         utm_medium: q.get("utm_medium"), utm_campaign: q.get("utm_campaign"),
         device: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop", session_id: ses }) }).catch(function () {});
+    // clic su WhatsApp e mail della sezione fatture
+    Array.prototype.forEach.call(document.querySelectorAll(".rf-contatto"), function (a) {
+      a.addEventListener("click", function () {
+        fetch("https://cuhcscpvhypoaplcmtjk.supabase.co/rest/v1/page_analytics", { method: "POST", keepalive: true,
+          headers: { "Content-Type": "application/json", "apikey": A, "Authorization": "Bearer " + A, "Prefer": "return=minimal" },
+          body: JSON.stringify({ azienda_id: "a43d41b5-f4ac-494f-8144-6574347a754f", pagina: "sito-home",
+            pagina_id: "a43d41b5-f4ac-494f-8144-6574347a754f", tipo: "click", elemento: a.getAttribute("data-el"), session_id: ses }) }).catch(function () {});
+      });
+    });
   } catch (e) {}
 })();
 </script>
