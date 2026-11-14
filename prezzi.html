@@ -378,8 +378,8 @@ async function caricaPiani() {
       `${SUPABASE_URL}/rest/v1/piani_abbonamento?select=*&attivo=eq.true&order=prezzo_mensile.asc`,
       { headers: { 'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}` } }
     );
-    // il Fondatore si attiva solo alla serata di lancio: non si vende dal sito
-    piani = (await res.json()).filter(p => p.slug !== 'fondatore');
+    // i piani Fondatore (Fondatore e Fondatore Base) si attivano solo alla serata di lancio: non si vendono dal sito
+    piani = (await res.json()).filter(p => p.tipo !== 'fondatore');
     renderPiani();
   } catch(e) {
     document.getElementById('pricing-grid').innerHTML =
