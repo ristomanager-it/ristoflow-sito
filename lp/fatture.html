@@ -7,7 +7,6 @@
   <meta name="description" content="Ricevi e invia le fatture elettroniche con Ristoflow. Le fatture dei fornitori diventano costi, scadenze e IVA del mese, pronte per il commercialista. Da 79 € l'anno, primi 3 mesi gratis.">
   <meta property="og:title" content="Ristoflow Fatture — da 79 € l'anno">
   <meta property="og:description" content="Le fatture dei fornitori diventano costi, scadenze e IVA del mese. Primi 3 mesi gratis.">
-  <meta name="robots" content="noindex">
   <link rel="icon" href="../img/logo.png">
   <link rel="stylesheet" href="../css/style.css">
   <style>
@@ -52,6 +51,10 @@
     .lp-form .consenso { font-size:.85rem; color:var(--text-light); display:flex; gap:8px; align-items:flex-start; }
     .lp-form .consenso input { width:auto; margin-top:3px; }
     #esito { font-size:.95rem; min-height:1.2em; }
+    .lp-btns { display:flex; gap:10px; flex-wrap:wrap; }
+    .lp-btns a { flex:1 1 220px; display:block; text-align:center; padding:15px 20px; border-radius:12px; font-weight:700; text-decoration:none; }
+    .lp-wa { background:#16a34a; color:#fff; } .lp-wa:hover { color:#fff; filter:brightness(1.08); }
+    .lp-ml { background:#fff; border:1.5px solid var(--primary); color:var(--primary); }
     .ok-box { background:#f0fdf4; border:1.5px solid #bbf7d0; color:#15803d; border-radius:16px; padding:22px; font-weight:600; display:none; }
     .lp-footer { text-align:center; margin-top:48px; font-size:.78rem; color:var(--text-light); }
     .lp-footer a { color:var(--text-light); }
@@ -65,8 +68,11 @@
       <h1>Le tue fatture lavorano per la tua cucina.</h1>
       <p>Ricevi e invii le fatture elettroniche con Ristoflow. Ogni fattura dei fornitori diventa costo, scadenza e IVA del mese, già pronta per il tuo commercialista.</p>
       <div class="lp-prezzo">Da 79 € l'anno + IVA · i primi 3 mesi sono gratis</div>
-      <a class="lp-cta rf-mail" href="mailto:info@ristoflow-ai.com?subject=Informazioni%20Ristoflow%20Fatture">Chiedi informazioni</a>
-      <p class="lp-note">Scrivi a info@ristoflow-ai.com · rispondiamo entro due giorni lavorativi</p>
+      <div class="lp-btns">
+        <a class="lp-wa rf-contatto" data-el="whatsapp" href="https://wa.me/393349487644?text=Ciao!%20Vorrei%20informazioni%20su%20Ristoflow%20Fatture" target="_blank" rel="noopener">💬 Scrivici su WhatsApp</a>
+        <a class="lp-ml rf-contatto" data-el="mail_info" href="mailto:info@ristoflow-ai.com?subject=Informazioni%20Ristoflow%20Fatture">✉️ info@ristoflow-ai.com</a>
+      </div>
+      <p class="lp-note">Rispondiamo entro due giorni lavorativi</p>
     </div>
 
     <!-- PERCHE' -->
@@ -128,9 +134,12 @@
 
     <!-- CONTATTO -->
     <div class="lp-blocco" id="attiva">
-      <h2>Vuoi saperne di più?</h2>
-      <p>Scrivici con il nome del locale e un numero di telefono: ti richiamiamo noi.</p>
-      <a class="lp-cta rf-mail" href="mailto:info@ristoflow-ai.com?subject=Informazioni%20Ristoflow%20Fatture">Scrivi a info@ristoflow-ai.com</a>
+      <h2>Vuoi attivarla o saperne di più?</h2>
+      <p>Scrivici con il nome del locale: ti rispondiamo noi.</p>
+      <div class="lp-btns">
+        <a class="lp-wa rf-contatto" data-el="whatsapp" href="https://wa.me/393349487644?text=Ciao!%20Vorrei%20informazioni%20su%20Ristoflow%20Fatture" target="_blank" rel="noopener">💬 Scrivici su WhatsApp</a>
+        <a class="lp-ml rf-contatto" data-el="mail_info" href="mailto:info@ristoflow-ai.com?subject=Informazioni%20Ristoflow%20Fatture">✉️ Scrivi a info@ristoflow-ai.com</a>
+      </div>
       <p class="lp-note">Rispondiamo entro due giorni lavorativi</p>
     </div>
 
@@ -161,8 +170,8 @@
   }
   conta("view", "sito_pagina");
 
-  Array.prototype.forEach.call(document.querySelectorAll(".rf-mail"), function (a) {
-    a.addEventListener("click", function () { conta("click", "mail_info"); });
+  Array.prototype.forEach.call(document.querySelectorAll(".rf-contatto"), function (a) {
+    a.addEventListener("click", function () { conta("click", a.getAttribute("data-el")); });
   });
 })();
 </script>
