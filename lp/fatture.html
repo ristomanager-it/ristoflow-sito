@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ristoflow Fatture — fatture elettroniche per chi fa ristorazione</title>
+  <meta name="description" content="Ricevi e invia le fatture elettroniche con Ristoflow. Le fatture dei fornitori diventano costi, scadenze e IVA del mese, pronte per il commercialista. Da 79 € l'anno, primi 3 mesi gratis.">
+  <meta property="og:title" content="Ristoflow Fatture — da 79 € l'anno">
+  <meta property="og:description" content="Le fatture dei fornitori diventano costi, scadenze e IVA del mese. Primi 3 mesi gratis.">
+  <link rel="icon" href="../img/logo.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body { background:#fafbfc; }
+    .lp-wrap { max-width:760px; margin:0 auto; padding:32px 20px 60px; }
+    .lp-logo { display:flex; align-items:center; gap:10px; margin-bottom:36px; }
+    .lp-logo img { height:36px; }
+    .lp-logo span { font-weight:800; font-size:1.1rem; color:var(--text); }
+    .lp-hero h1 { font-size:clamp(1.7rem,5.5vw,2.5rem); line-height:1.15; margin-bottom:14px; }
+    .lp-hero p { font-size:1.08rem; color:var(--text-light); margin-bottom:22px; }
+    .lp-prezzo { display:inline-block; background:#e0f2fe; color:#0E5A7A; font-weight:800; border-radius:10px; padding:8px 14px; margin-bottom:22px; }
+    .lp-cta { display:block; text-align:center; background:var(--primary); color:#fff; font-weight:700; font-size:1.05rem; padding:16px 28px; border-radius:12px; text-decoration:none; border:0; width:100%; cursor:pointer; box-shadow:0 8px 24px rgba(14,90,122,.25); font-family:inherit; }
+    .lp-cta:hover { filter:brightness(1.08); color:#fff; }
+    .lp-cta[disabled] { opacity:.6; cursor:wait; }
+    .lp-note { text-align:center; font-size:.82rem; color:var(--text-light); margin-top:10px; }
+    .lp-blocco { margin:44px 0; }
+    .lp-blocco h2 { font-size:1.35rem; margin-bottom:12px; }
+    .lp-blocco p { font-size:1rem; line-height:1.6; margin-bottom:12px; }
+    .lp-occhiello { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:6px; }
+    .lp-tre { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px; }
+    .lp-due { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
+    @media (max-width:640px){ .lp-tre, .lp-due { grid-template-columns:1fr; } }
+    .lp-card { background:#fff; border:1.5px solid var(--border); border-radius:16px; padding:20px; }
+    .lp-card h3 { font-size:1.05rem; margin-bottom:8px; }
+    .lp-card p { font-size:.95rem; color:var(--text-light); margin:0; line-height:1.5; }
+    .lp-piano { background:#fff; border:1.5px solid var(--border); border-radius:16px; padding:22px; }
+    .lp-piano.su { border-color:var(--primary); box-shadow:0 6px 20px rgba(14,90,122,.10); }
+    .lp-piano .nome { font-weight:800; font-size:1.1rem; }
+    .lp-piano .cifra { font-size:2rem; font-weight:800; margin:6px 0 2px; color:var(--text); }
+    .lp-piano .cifra small { font-size:.9rem; font-weight:600; color:var(--text-light); }
+    .lp-piano ul { list-style:none; padding:0; margin:12px 0 0; }
+    .lp-piano li { position:relative; padding-left:22px; margin-bottom:8px; font-size:.95rem; line-height:1.45; }
+    .lp-piano li::before { content:"\2713"; position:absolute; left:0; color:var(--accent); font-weight:800; }
+    .passo { display:flex; gap:14px; margin-bottom:16px; align-items:flex-start; }
+    .passo .n { flex:0 0 32px; height:32px; border-radius:50%; background:var(--primary); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .passo p { margin:0; font-size:.97rem; line-height:1.5; }
+    .lp-form { background:#fff; border:1.5px solid var(--border); border-radius:16px; padding:22px; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    @media (max-width:640px){ .lp-form { grid-template-columns:1fr; } }
+    .lp-form .intera { grid-column:1/-1; }
+    .lp-form label { display:block; font-size:.8rem; color:var(--text-light); margin-bottom:4px; font-weight:600; }
+    .lp-form input, .lp-form select { width:100%; box-sizing:border-box; border:1.5px solid var(--border); border-radius:10px; padding:11px 12px; font-size:1rem; font-family:inherit; background:#fff; }
+    .lp-form .consenso { font-size:.85rem; color:var(--text-light); display:flex; gap:8px; align-items:flex-start; }
+    .lp-form .consenso input { width:auto; margin-top:3px; }
+    #esito { font-size:.95rem; min-height:1.2em; }
+    .ok-box { background:#f0fdf4; border:1.5px solid #bbf7d0; color:#15803d; border-radius:16px; padding:22px; font-weight:600; display:none; }
+    .lp-footer { text-align:center; margin-top:48px; font-size:.78rem; color:var(--text-light); }
+    .lp-footer a { color:var(--text-light); }
+  </style>
+</head>
+<body>
+  <div class="lp-wrap">
+    <div class="lp-logo"><img src="../img/logo.png" alt="Ristoflow"><span>Ristoflow.AI</span></div>
+
+    <div class="lp-hero">
+      <h1>Le tue fatture lavorano per la tua cucina.</h1>
+      <p>Ricevi e invii le fatture elettroniche con Ristoflow. Ogni fattura dei fornitori diventa costo, scadenza e IVA del mese, già pronta per il tuo commercialista.</p>
+      <div class="lp-prezzo">Da 79 € l'anno + IVA · i primi 3 mesi sono gratis</div>
+      <a class="lp-cta" href="#attiva">Richiedi l'attivazione</a>
+    </div>
+
+    <!-- PERCHE' -->
+    <div class="lp-blocco">
+      <div class="lp-occhiello">Perché</div>
+      <h2>Nato dai problemi delle mie cucine</h2>
+      <p>Un ristorante riceve decine di fatture al mese. Di solito restano su un portale: si scaricano per il commercialista e nessuno le guarda più. Eppure dentro c'è tutto: quanto paghi la farina oggi, cosa scade venerdì, quanta IVA versi a fine mese.</p>
+      <p>Ristoflow Fatture le legge per te, riga per riga, e te le restituisce come numeri che servono a chi cucina e a chi fa i conti.</p>
+    </div>
+
+    <!-- COME -->
+    <div class="lp-blocco">
+      <div class="lp-occhiello">Come</div>
+      <h2>Un collegamento diretto con lo SDI, in tutte e due le direzioni</h2>
+      <div class="lp-tre">
+        <div class="lp-card"><h3>📥 Ricevi</h3><p>Le fatture dei fornitori arrivano da sole, lette riga per riga: prodotto, quantità, prezzo, scadenza.</p></div>
+        <div class="lp-card"><h3>📤 Invia</h3><p>Fatture ai clienti, acconti e saldi degli eventi. Scrivi la partita IVA, il resto si compila e parte allo SDI.</p></div>
+        <div class="lp-card"><h3>🧮 Capisci</h3><p>IVA a debito e a credito del mese, scadenze da pagare, cosa spendi in merce su quanto incassi.</p></div>
+      </div>
+    </div>
+
+    <!-- COSA -->
+    <div class="lp-blocco">
+      <div class="lp-occhiello">Cosa</div>
+      <h2>Scegli in base a quante fatture fai</h2>
+      <div class="lp-due">
+        <div class="lp-piano">
+          <div class="nome">Fatture</div>
+          <div class="cifra">79 € <small>l'anno + IVA</small></div>
+          <div style="color:var(--text-light);font-size:.92rem;">Per trattorie, pizzerie, bar</div>
+          <ul>
+            <li>Fino a 600 documenti l'anno, ricevuti e inviati</li>
+            <li>Situazione IVA del mese e scadenze</li>
+            <li>Accesso per il commercialista</li>
+            <li>Autofatture per acquisti dall'estero</li>
+          </ul>
+        </div>
+        <div class="lp-piano su">
+          <div class="nome">Fatture Plus</div>
+          <div class="cifra">129 € <small>l'anno + IVA</small></div>
+          <div style="color:var(--text-light);font-size:.92rem;">Per ristoranti con eventi e catering</div>
+          <ul>
+            <li>Fino a 1.500 documenti l'anno, ricevuti e inviati</li>
+            <li>Tutto quello del piano Fatture</li>
+            <li>Acconti e saldi collegati agli eventi</li>
+            <li>Fattura chiesta al tavolo, in un tocco</li>
+          </ul>
+        </div>
+      </div>
+      <p class="lp-note" style="text-align:left;margin-top:12px;">Oltre la soglia del piano, 0,10 € a documento. Nella tua area vedi sempre quanti ne hai usati.</p>
+    </div>
+
+    <div class="lp-blocco">
+      <h2>Come si comincia</h2>
+      <div class="passo"><div class="n">1</div><p><strong>Richiedi l'attivazione</strong> qui sotto: ti chiamiamo e attiviamo il tuo spazio con la partita IVA.</p></div>
+      <div class="passo"><div class="n">2</div><p><strong>Indichi Ristoflow come destinatario</strong> sul portale Fatture e Corrispettivi dell'Agenzia delle Entrate. Ti guidiamo passo per passo: dieci minuti, una volta sola.</p></div>
+      <div class="passo"><div class="n">3</div><p><strong>Da quel giorno le fatture arrivano qui</strong> e le tue partono da qui. La conservazione per dieci anni la fa gratis l'Agenzia delle Entrate.</p></div>
+    </div>
+
+    <!-- MODULO -->
+    <div class="lp-blocco" id="attiva">
+      <h2>Richiedi l'attivazione</h2>
+      <form class="lp-form" id="modulo" novalidate>
+        <div><label for="f-piva">Partita IVA</label><input id="f-piva" inputmode="numeric" maxlength="16" autocomplete="off" required></div>
+        <div><label for="f-rs">Nome del locale o ragione sociale</label><input id="f-rs" maxlength="120" autocomplete="organization" required></div>
+        <div><label for="f-nome">Il tuo nome</label><input id="f-nome" maxlength="80" autocomplete="name" required></div>
+        <div><label for="f-tel">Telefono</label><input id="f-tel" type="tel" maxlength="30" autocomplete="tel" required></div>
+        <div><label for="f-email">Email</label><input id="f-email" type="email" maxlength="120" autocomplete="email" required></div>
+        <div><label for="f-piano">Piano</label>
+          <select id="f-piano">
+            <option value="fatture">Fatture · 79 € l'anno</option>
+            <option value="fatture_plus">Fatture Plus · 129 € l'anno</option>
+            <option value="non_so">Non so ancora</option>
+          </select>
+        </div>
+        <label class="consenso intera"><input type="checkbox" id="f-ok"> <span>Accetto che Ristoflow usi questi dati per contattarmi sull'attivazione. <a href="../privacy.html" target="_blank">Privacy</a></span></label>
+        <div class="intera"><button class="lp-cta" type="submit" id="invia">Richiedi i 3 mesi gratis</button></div>
+        <div class="intera" id="esito"></div>
+      </form>
+      <div class="ok-box" id="grazie">✓ Richiesta arrivata. Ti chiamiamo entro due giorni lavorativi per attivare Ristoflow Fatture.</div>
+    </div>
+
+    <div class="lp-footer">
+      Ristoflow.AI — Nato in cucina, non in laboratorio · <a href="fatturazione.html">Fatture dentro il gestionale completo</a> · <a href="../privacy.html">Privacy</a> · <a href="../cookie.html">Cookie</a>
+    </div>
+  </div>
+
+<script>
+(function () {
+  var URL_SB = "https://cuhcscpvhypoaplcmtjk.supabase.co";
+  var A = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1aGNzY3B2aHlwb2FwbGNtdGprIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4MjY4MjgsImV4cCI6MjA3OTQwMjgyOH0.q9zAs0oh8F1-whtORHBIORF5jIn1NTS3LvSMWleP0a0";
+  var q = new URLSearchParams(location.search), ses = null;
+  try { ses = sessionStorage.getItem("rf_ses"); if (!ses) { ses = Math.random().toString(36).slice(2) + Date.now().toString(36); sessionStorage.setItem("rf_ses", ses); } } catch (e) {}
+  var ref = document.referrer || "";
+  function conta(tipo, elemento) {
+    // contatore visite nostro: solo pagina e provenienza, nessun dato personale (page_analytics)
+    try {
+      fetch(URL_SB + "/rest/v1/page_analytics", { method: "POST", keepalive: true,
+        headers: { "Content-Type": "application/json", "apikey": A, "Authorization": "Bearer " + A, "Prefer": "return=minimal" },
+        body: JSON.stringify({ azienda_id: "a43d41b5-f4ac-494f-8144-6574347a754f", pagina: "lp-fatture",
+          pagina_id: "a43d41b5-f4ac-494f-8144-6574347a754f", tipo: tipo, elemento: elemento,
+          referrer: ref ? ref.slice(0, 250) : null,
+          utm_source: q.get("utm_source") || (ref ? (function () { try { return new URL(ref).hostname; } catch (e) { return null; } })() : "diretto"),
+          utm_medium: q.get("utm_medium"), utm_campaign: q.get("utm_campaign"),
+          device: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop", session_id: ses }) }).catch(function () {});
+    } catch (e) {}
+  }
+  conta("view", "sito_pagina");
+
+  var f = document.getElementById("modulo"), esito = document.getElementById("esito"), btn = document.getElementById("invia");
+  function v(id) { return (document.getElementById(id).value || "").trim(); }
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    esito.style.color = "#b91c1c";
+    var piva = v("f-piva").replace(/\s/g, "").replace(/^IT/i, "");
+    if (!/^\d{11}$/.test(piva) && !/^[A-Za-z0-9]{16}$/.test(piva)) { esito.textContent = "Controlla la partita IVA: sono 11 cifre."; return; }
+    if (!v("f-rs") || !v("f-nome")) { esito.textContent = "Scrivi il nome del locale e il tuo nome."; return; }
+    if (v("f-tel").replace(/\D/g, "").length < 8) { esito.textContent = "Scrivi un telefono a cui chiamarti."; return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("f-email"))) { esito.textContent = "Controlla l'email."; return; }
+    if (!document.getElementById("f-ok").checked) { esito.textContent = "Serve il consenso per poterti contattare."; return; }
+    btn.disabled = true; esito.style.color = "inherit"; esito.textContent = "Invio...";
+    var dati = { piva: piva, ragione_sociale: v("f-rs"), telefono: v("f-tel"), piano: v("f-piano"),
+                 utm_source: q.get("utm_source"), utm_campaign: q.get("utm_campaign") };
+    fetch(URL_SB + "/rest/v1/ristoflow_leads", { method: "POST",
+      headers: { "Content-Type": "application/json", "apikey": A, "Authorization": "Bearer " + A, "Prefer": "return=minimal" },
+      body: JSON.stringify({ nome: v("f-nome"), email: v("f-email"), tipo_locale: null, stato: "nuovo",
+        fonte: "lp-fatture", tipo: "solo_fatture", note: JSON.stringify(dati) }) })
+    .then(function (r) {
+      if (!r.ok) throw new Error(String(r.status));
+      conta("submit", "richiesta_fatture");
+      f.style.display = "none"; document.getElementById("grazie").style.display = "block";
+    })
+    .catch(function () {
+      btn.disabled = false; esito.style.color = "#b91c1c";
+      esito.textContent = "Non è partita. Riprova tra un attimo, oppure scrivici dal sito.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
