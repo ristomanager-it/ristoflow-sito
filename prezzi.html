@@ -246,7 +246,7 @@
     <h2>Inizia oggi, la formazione è compresa</h2>
     <p>Attivi il pacchetto e ti facciamo la formazione online, per te e per il tuo staff.</p>
     <div class="cta-actions">
-      <a href="https://app.ristoflow-ai.com/#/login?register=1" class="btn btn-accent btn-lg" target="_blank">🚀 Provalo gratis 14 giorni →</a>
+      <a href="https://wa.me/393349487644?text=Ciao!%20Vorrei%20attivare%20Ristoflow" class="btn btn-accent btn-lg" target="_blank" rel="noopener">💬 Attiva Ristoflow →</a>
       <a href="funzionalita.html" class="btn btn-white btn-lg">Scopri le funzionalità</a>
     </div>
   </div>
@@ -428,8 +428,8 @@ function renderPiani() {
     const sedi  = p.sedi_max > 90 ? 'Sedi illimitate' : `${p.sedi_max} sed${p.sedi_max === 1 ? 'e' : 'i'}`;
     const isFeatured = p.popolare === true;
     const emailSubj = encodeURIComponent(`Interesse piano ${p.nome} — Ristoflow.AI`);
-    const waMsg = encodeURIComponent(`Ciao! Sono interessato al piano ${p.nome} di Ristoflow. Possiamo sentirci?`);
-    const isStarter = p.slug !== 'fondatore';   // prova gratuita di 14 giorni su tutti i pacchetti, tranne il Fondatore
+    const waMsg = encodeURIComponent(`Ciao! Vorrei attivare il piano ${p.nome} di Ristoflow.`);
+    const isStarter = false;   // prova gratuita sospesa (20/11/2026): si attiva il pacchetto con la formazione online
 
     return `
       <div class="pricing-card${isFeatured ? ' featured' : ''}">
@@ -447,7 +447,7 @@ function renderPiani() {
         ${isStarter
           ? `<a href="https://app.ristoflow-ai.com/#/login?register=1" class="btn ${isFeatured ? 'btn-white' : 'btn-primary'}" style="width:100%;justify-content:center;" target="_blank" rel="noopener">🚀 Prova gratis 14 giorni</a>
              <a href="https://wa.me/393349487644?text=${waMsg}" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:8px;font-size:13px;color:${isFeatured ? 'rgba(255,255,255,0.85)' : '#6b7280'};text-decoration:underline;">o parlane con noi</a>`
-          : `<a href="https://wa.me/393349487644?text=${waMsg}" class="btn ${isFeatured ? 'btn-white' : 'btn-primary'}" style="width:100%;justify-content:center;" target="_blank" rel="noopener">💬 Richiedi attivazione</a>
+          : `<a href="https://wa.me/393349487644?text=${waMsg}" class="btn ${isFeatured ? 'btn-white' : 'btn-primary'}" style="width:100%;justify-content:center;" target="_blank" rel="noopener">💬 Attiva il pacchetto</a>
              <a href="mailto:info@ristoflow-ai.com?subject=${emailSubj}" style="display:block;text-align:center;margin-top:8px;font-size:13px;color:${isFeatured ? 'rgba(255,255,255,0.85)' : '#6b7280'};text-decoration:underline;">o scrivici via email</a>`
         }
       </div>
