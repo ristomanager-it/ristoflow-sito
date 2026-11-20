@@ -163,7 +163,7 @@
         <input type="checkbox" id="toggle-annuale">
         <span class="toggle-slider"></span>
       </label>
-      <span id="lbl-annuale">Annuale <span class="badge-risparmio">-20%</span></span>
+      <span id="lbl-annuale">Annuale <span class="badge-risparmio">fino a -20%</span></span>
     </div>
 
     <!-- Cards piani (popolate da JS) -->
@@ -206,8 +206,12 @@
         <h2>Domande frequenti</h2>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Posso provare Ristoflow.AI prima di pagare?</div>
-        <div class="faq-a">Sì — offriamo una demo gratuita di 30 minuti adattata al tuo locale. Scrivici a info@ristoflow-ai.com per prenotarla.</div>
+        <div class="faq-q">Come si parte?</div>
+        <div class="faq-a">Scegli il pacchetto e lo attivi: subito dopo ti facciamo la formazione online, per te e per il tuo staff, compresa nel prezzo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Come si paga l'annuale?</div>
+        <div class="faq-a">In un'unica soluzione risparmi il 20% sul prezzo mensile. Se preferisci, puoi pagare l'anno in 3 rate nei primi 3 mesi e risparmi il 10%.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Posso cambiare piano in qualsiasi momento?</div>
@@ -239,8 +243,8 @@
 
 <section class="cta-section">
   <div class="container">
-    <h2>Inizia oggi con una demo gratuita</h2>
-    <p>Ti mostriamo Ristoflow.AI in 30 minuti. Nessun impegno, nessuna carta di credito.</p>
+    <h2>Inizia oggi, la formazione è compresa</h2>
+    <p>Attivi il pacchetto e ti facciamo la formazione online, per te e per il tuo staff.</p>
     <div class="cta-actions">
       <a href="https://app.ristoflow-ai.com/#/login?register=1" class="btn btn-accent btn-lg" target="_blank">🚀 Provalo gratis 14 giorni →</a>
       <a href="funzionalita.html" class="btn btn-white btn-lg">Scopri le funzionalità</a>
@@ -413,7 +417,11 @@ function renderPiani() {
       suffisso = '';
       subPrezzo = 'Pagamento una tantum';
     } else if (annuale && p.prezzo_annuale) {
-      subPrezzo = `€${p.prezzo_annuale}/anno — risparmi €${(p.prezzo_mensile * 12 - p.prezzo_annuale).toFixed(0)}`;
+      // annuale: -20% in un'unica soluzione, -10% in 3 rate nei primi 3 mesi
+      subPrezzo = `€${Number(p.prezzo_annuale)}/anno in un'unica soluzione (-20%)` +
+        (p.prezzo_3rate ? `<br>oppure 3 rate da €${Math.round(p.prezzo_3rate / 3)} (-10%)` : '');
+    } else if (p.prezzo_annuale) {
+      subPrezzo = `Annuale -20% · in 3 rate -10%`;
     }
 
     const tipo  = TIPO_MAP[p.tipo] || { label: p.tipo || '', cls: '' };
